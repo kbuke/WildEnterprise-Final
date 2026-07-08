@@ -18,7 +18,7 @@ export function useFetchSpecificSite(id:number){
         isError,
         isLoading
     } = useQuery<SiteType, Error>({
-        queryKey: ["sites"],
+        queryKey: ["sites", id],
         queryFn: () => getSpecificSite(id)
     })
 

@@ -4,6 +4,8 @@ import App from "./App";
 import { HomePg } from "./Pages/HomePg/HomePg";
 import { SpecificSites } from "./Pages/SpecificSites/SpecificSites.tsx";
 import { SpecificBlog } from "./Pages/SpecificBlog/SpecificBlog.tsx";
+import { Authentication } from "./Pages/Authentication/Authentication.tsx";
+import { AuthenticationApproved } from "./Pages/AuthenticationApproved/AuthenticationApproved.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -12,7 +14,9 @@ export const router = createBrowserRouter([
         children: [
             {index: true, element: <HomePg />},
             {path: "sites/:slug/:id", element: <SpecificSites />},
-            {path: "blogs/:slug/:id", element: <SpecificBlog />}
+            {path: "blogs/:slug/:id", element: <SpecificBlog />},
+            {path: "/signin", element: <Authentication />},
+            {path: "/approved", element: <AuthenticationApproved />}
         ]
     }
 ])

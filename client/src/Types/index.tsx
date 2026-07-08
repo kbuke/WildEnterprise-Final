@@ -37,7 +37,7 @@ export type SectionHeadingType = {
 }
 
 export type SiteInfoType = {
-    name: string
+    name: string,
     info: string,
     img1: string,
     img2: string,
@@ -45,7 +45,7 @@ export type SiteInfoType = {
 }
 
 export type SiteType = {
-    id: number
+    id: number,
     name: string,
     slug: string,
     location: string,
@@ -57,4 +57,11 @@ export type SiteType = {
     primary_img_3: string,
     animals: AnimalType[],
     blogs: BlogType[]
+}
+
+export type UserType = {
+    id: number,
+    email: string,
+    name: string,
+    img: string
 }

@@ -1,15 +1,12 @@
 import { MapPinIcon } from "@heroicons/react/24/outline"
 import { SectionHeading } from "../../../Components/SectionHeadings"
 import { useFetchSites } from "../../../Hooks/useFetchSites"
-import { useState } from "react"
 import { Link } from "react-router-dom"
 
 export function Sites() {
-  const [selectedPark, setSelectedPark] = useState<number>()
-
-  console.log(selectedPark)
-
+  
   const { sites, isError, error, isLoading } = useFetchSites()
+
 
   return (
     <section className="bg-black/80 text-white">
@@ -19,7 +16,7 @@ export function Sites() {
           textWhite: true,
         })}
 
-        {sites.map((site) => {
+        {sites?.map((site) => {
           return (
             <div className="grid grid-cols-[2fr_3fr] gap-2 mt-4" key={site.id}>
               <img

@@ -27,7 +27,7 @@ export function SiteBlogs({
             <div
                 className="flex gap-4"
             >
-                {blogs.map(blog => {
+                {blogs?.map(blog => {
                     console.log(blog)
                     const {
                         cover_photo,

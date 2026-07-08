@@ -30,7 +30,8 @@ bcrypt = Bcrypt(app)
 
 api = Api(app)
 
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+# cors = CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, supports_credentials=True, origins=["http://localhost:5173"])
 
 login_manager = LoginManager()
 login_manager.init_app(app)
