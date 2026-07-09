@@ -10,8 +10,6 @@ export function NavBar({
     loggedUser
 }: {loggedUser: UserType | null}){
 
-    console.log(loggedUser)
-
     const navLinks = ({
         link, linkText
     }: NavLinkType) => {

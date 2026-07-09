@@ -13,14 +13,16 @@ export function SpecificBlog(){
         blog,
         error,
         isError,
-        isLoading
+        isLoading,
     } = useFetchSpecificBlog(blogId)
 
     if(isLoading) return <p>Loading...</p>
     if(isError) return <p>Error: {error?.toString()}</p>
     if(!blog) return <p>Site not found</p>
 
-    const {content, cover_photo, edited_at, published_at, sites, title, views} = blog
+    const {content, cover_photo, edited_at, published_at, sites, title, views, blog_comments, slug} = blog
+
+    console.log(blog)
 
     return(
         <section>
@@ -92,6 +94,9 @@ export function SpecificBlog(){
             <SpecificBlogContent 
                 content={content}
                 sites={sites}
+                blog_comments={blog_comments}
+                blogId={blogId}
+                slug={slug}
             />
         </section>
     )

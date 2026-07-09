@@ -18,7 +18,7 @@ export function useFetchSpecificBlog(id:number){
         isError,
         isLoading
     } = useQuery<BlogType, Error>({
-        queryKey: ["blogs"],
+        queryKey: ["blogs", id],
         queryFn: () => getSpecificBlog(id)
     })
 

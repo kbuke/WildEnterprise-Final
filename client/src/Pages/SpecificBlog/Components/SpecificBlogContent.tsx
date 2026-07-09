@@ -1,59 +1,122 @@
-import type { SiteType } from "../../../Types"
-import { Link } from "react-router-dom"
+import { useForm } from "react-hook-form"
+import type { BlogCommentsType, OutletContextType, SiteType } from "../../../Types"
+import { useOutletContext } from "react-router-dom"
+import { usePostBlogComments } from "../../../Hooks/usePostBlogComment"
 
 type SpecificBlogType = {
-    content: string,
+    blogId: number
+    content: string
     sites: SiteType[]
+    blog_comments: BlogCommentsType[],
+    slug: string
+}
+
+type CommentFormData = {
+    content: string
 }
 
 export function SpecificBlogContent({
+    blogId,
     content,
-    sites
-}: SpecificBlogType){
-    console.log(sites)
-    return(
-        <div
-            // className="px-10 py-4"
-            className="py-4"
-        >
-            <div
-                className="flex items-center gap-4 py-2 px-10"
-            >
-                <h2
-                    className="text-2xl font-bold tracking-[2px]"
-                >
-                    Tagged Sites: </h2>
-                {sites.map(site => {
-                    const {slug, id, name, head_img} = site
+    sites,
+    blog_comments,
+    slug
+}: SpecificBlogType) {
+    const resources: OutletContextType = useOutletContext()
+    const loggedUser = resources.loggedUser
 
-                    return(
-                        <Link
-                            to={`/sites/${slug}/${id}`}
-                            className="flex gap-2 items-center bg-gray-500/80 text-white py-2 px-6 rounded"
-                        >
-                            <img 
-                                src={head_img}
-                                className="h-14 w-14 rounded-full"
+    const postCommentMutation = usePostBlogComments(blogId)
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { isSubmitting }
+    } = useForm<CommentFormData>()
+
+    const onSubmit = (data: CommentFormData) => {
+        if (!loggedUser) return; 
+
+        postCommentMutation.mutate(
+            {blogId, userId: loggedUser.id, comment: data.content},
+            {onSuccess: () => reset()}
+        )
+    }
+
+    console.log(blog_comments)
+
+    return (
+        <div>
+            <div className="grid grid-cols-2">
+                <div className="py-4 px-8">
+                    <p className="text-2xl tracking-[3px]">{content}</p>
+                </div>
+
+                <div className="flex flex-col bg-black text-white py-4 px-8 overflow-y-auto">
+                    <h2 className="uppercase text-2xl tracking-[3px] mb-4">
+                        Comments
+                    </h2>
+
+                    {blog_comments.length === 0 &&
+                        <p>No Comments</p>
+                    }
+
+                    {!loggedUser &&
+                        <div>
+                            <p>
+                                Login to leave a comment
+                            </p>
+                        </div>
+                    }
+
+                    <div className="mt-4 flex flex-col gap-3">
+                        {blog_comments.map(comments => {
+                            const {comment, user} = comments
+                            if(!user) return null;
+                            const {img, name} = user
+
+                            return(
+                                <div
+                                    className="mb-4 flex gap-4 items-center border-b py-2"
+                                >
+                                    <div>
+                                        <p
+                                            className="uppercase font-bold"
+                                        >
+                                            {name}
+                                        </p>
+                                        <img 
+                                            src={img}
+                                            className="rounded-full h-14 w-14"
+                                        />
+                                    </div>
+
+                                    <p>
+                                        {comment}
+                                    </p>
+                                </div>
+                            )
+                        })}
+                    </div>
+
+                    {loggedUser &&
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <textarea
+                                className="border rounded px-2 h-20 w-full"
+                                placeholder="Enter your comment"
+                                {...register("content", { required: true })}
                             />
 
-                            <p
-                                className="text-xl uppercase font-bold tracking-[4px]"
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="bg-green-600/80 px-4 py-2 rounded mt-4 disabled:opacity-50 cursor-pointer"
                             >
-                                {name}
-                            </p>
-                        </Link>
-                    )
-                })}
-            </div>
-
-            <div
-                className="py-8 bg-black/80 text-white px-6 border-t-2 border-white"
-            >
-                <p
-                    className="text-2xl tracking-[2px]"
-                >
-                    {content}
-                </p>
+                                {isSubmitting ? "Posting..." : "Add Comment"}
+                            </button>
+                        </form>
+                    }
+                </div>
             </div>
         </div>
     )

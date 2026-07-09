@@ -14,4 +14,6 @@ class UserModel(db.Model, SerializerMixin, UserMixin):
 
     serialize_rules = (
         "-oauth_accounts.user",
+        "-blog_comments.user",
+        "-blog_comments.blog",
     )

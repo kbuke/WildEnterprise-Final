@@ -28,6 +28,12 @@ class BlogModel(db.Model, SerializerMixin):
     published_at = db.Column(db.DateTime, nullable=True)
     edited_at = db.Column(db.DateTime, nullable=True)
 
+    serialize_rules = (
+        "-blog_comments.blog",
+        "-blog_comments.user.blog_comments",
+        "-blog_comments.user.oauth_accounts",
+    )
+
     # Link up blogs with sites
     sites = many_to_many("SiteModel", "blogs", "site_blogs")
 

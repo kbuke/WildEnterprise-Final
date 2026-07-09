@@ -12,6 +12,14 @@ export type AnimalProfileType = {
     onClose: () => void
 } & AnimalType
 
+export type BlogCommentsType = {
+    id: number,
+    comment: string,
+    blog_id: number,
+    user_id: number,
+    user?: UserType
+}
+
 export type BlogType = {
     id: number
     title: string,
@@ -23,7 +31,12 @@ export type BlogType = {
     published_at: string,
     updated_at: string,
     edited_at: string,
-    sites: SiteType[]
+    sites: SiteType[],
+    blog_comments: BlogCommentsType[]
+}
+
+export type OutletContextType = {
+    loggedUser: UserType
 }
 
 export type ParamsType = {
@@ -34,6 +47,10 @@ export type ParamsType = {
 export type SectionHeadingType = {
     heading: string,
     textWhite: boolean
+}
+
+export type SignInUpType = {
+    onChange: () => void
 }
 
 export type SiteInfoType = {
