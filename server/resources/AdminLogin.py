@@ -15,8 +15,6 @@ class AdminLogin(Resource):
         admin_email = os.getenv("ADMIN_EMAIL")
         admin_hash = os.getenv("ADMIN_PW")
 
-        print(repr(admin_hash))
-
         if not email or not password:
             return {"error": "Email and password required"}, 400
         

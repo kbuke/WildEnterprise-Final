@@ -18,7 +18,7 @@ export function useAdminLogout() {
     return useMutation({
         mutationFn: deleteAdminSession,
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["adminSession"] });
+            queryClient.setQueryData(["admnSession"], {is_admin: false})
         }
     });
 }

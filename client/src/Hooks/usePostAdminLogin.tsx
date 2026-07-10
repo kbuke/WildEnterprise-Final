@@ -39,7 +39,7 @@ export function usePostAdminLogin() {
     return useMutation({
         mutationFn: postAdminLogin,
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["adminSession"] });
+            queryClient.setQueryData(["adminSession"], {is_admin: true})
         }
     });
 }
