@@ -10,6 +10,9 @@ from resources.GoogleAuth import GoogleAuth
 from resources.Logout import Logout
 from resources.CheckSession import CheckSession
 from resources.BlogComments import BlogCommentsList, SpecificBlogComment
+from resources.AdminLogin import AdminLogin
+from resources.AdminLogout import AdminLogout
+from resources.AdminCheckSession import AdminCheckSession
 
 api.add_resource(SitesList, "/sites")
 api.add_resource(SpecificSite, "/sites/<int:id>")
@@ -34,6 +37,10 @@ api.add_resource(CheckSession, "/auth/checksession")
 
 api.add_resource(BlogCommentsList, "/comments")
 api.add_resource(SpecificBlogComment, "/comments/<int:id>")
+
+api.add_resource(AdminLogin, "/admin/login")
+api.add_resource(AdminLogout, "/admin/logout")
+api.add_resource(AdminCheckSession, "/admin/checksession")
 
 if __name__ == "__main__":
     app.run(port = 5555, debug = True)

@@ -14,8 +14,8 @@ sqlalchemy = "*"
 sqlalchemy-serializer = "*"
 flask-login = "*"
 google-auth = "*"
-flask-bcrypt = "*"
 requests = "*"
+flask-bcrypt = "*"
 
 [dev-packages]
 

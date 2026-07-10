@@ -6,6 +6,9 @@ import { SpecificSites } from "./Pages/SpecificSites/SpecificSites.tsx";
 import { SpecificBlog } from "./Pages/SpecificBlog/SpecificBlog.tsx";
 import { Authentication } from "./Pages/Authentication/Authentication.tsx";
 import { AuthenticationApproved } from "./Pages/AuthenticationApproved/AuthenticationApproved.tsx";
+import { AdminLogin } from "./Pages/AdminLogin/AdminLogin.tsx";
+import { AdminDashboard } from "./Pages/AdminDashboard/AdminDashboard.tsx";
+import { ProtectedAdminRoute } from "./Components/ProtectedAdminRoute.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -16,7 +19,14 @@ export const router = createBrowserRouter([
             {path: "sites/:slug/:id", element: <SpecificSites />},
             {path: "blogs/:slug/:id", element: <SpecificBlog />},
             {path: "/signin", element: <Authentication />},
-            {path: "/approved", element: <AuthenticationApproved />}
+            {path: "/approved", element: <AuthenticationApproved />},
+            {path: "/adminlogin", element: <AdminLogin />},
+            {
+                element: <ProtectedAdminRoute />,
+                children: [
+                    {path: "/admindashboard", element: <AdminDashboard />}
+                ]
+            }
         ]
     }
 ])
