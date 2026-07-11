@@ -3,10 +3,13 @@ import { useFetchSites } from "../../Hooks/useFetchSites"
 import { useState } from "react"
 import { PopUp } from "../../Components/PopUp"
 import { PostNewSite } from "./Components/PostNewSite"
+import type { SiteType } from "../../Types"
+import { DeleteSite } from "./Components/DeleteSite"
 
 export function AdminSites(){
 
     const [siteAction, setSiteAction] = useState<"Post" | "Patch" | "Delete">()
+    const [selectedSite, setSelectedSite] = useState<SiteType>()
 
     const fetchSites = useFetchSites()
     const allSites = fetchSites.sites
@@ -19,6 +22,19 @@ export function AdminSites(){
                 <PopUp>
                     <PostNewSite 
                         onClose={() => setSiteAction(undefined)}
+                    />
+                </PopUp>
+            }
+
+            {siteAction === "Delete" && selectedSite &&
+                <PopUp>
+                    <DeleteSite 
+                        name={selectedSite?.name}
+                        id={selectedSite?.id}
+                        onClose={() => {
+                            setSiteAction(undefined)
+                            setSelectedSite(undefined)
+                        }}
                     />
                 </PopUp>
             }
@@ -78,6 +94,10 @@ export function AdminSites(){
 
                                 <div
                                     className="bg-white h-12 flex items-center justify-between px-20 rounded-full mt-4 cursor-pointer hover:bg-gray-600 hover:text-white duration-200"
+                                    onClick={() => {
+                                        setSelectedSite(site)
+                                        setSiteAction("Delete")
+                                    }}
                                 >
                                     <TrashIcon 
                                         className="h-10 w-10"

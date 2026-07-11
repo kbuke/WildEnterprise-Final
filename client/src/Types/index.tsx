@@ -45,6 +45,12 @@ export type DashboardType = {
     bgUrl: string
 }
 
+export type DeleteSiteType = {
+    id: number,
+    name: string,
+    onClose: () => void
+}
+
 export type OutletContextType = {
     loggedUser: UserType
 }
