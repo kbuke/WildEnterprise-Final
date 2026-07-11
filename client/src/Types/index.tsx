@@ -35,6 +35,16 @@ export type BlogType = {
     blog_comments: BlogCommentsType[]
 }
 
+export type CloseCrudType = {
+    onClose: () => void
+}
+
+export type DashboardType = {
+    bgImg: string,
+    bgTitle: string,
+    bgUrl: string
+}
+
 export type OutletContextType = {
     loggedUser: UserType
 }
@@ -42,6 +52,17 @@ export type OutletContextType = {
 export type ParamsType = {
     slug: string,
     id: string
+}
+
+export type PostNewSiteType = {
+    name: string,
+    location: string,
+    intro: string,
+    headImg: string,
+    info: string,
+    primaryImg1: string,
+    primaryImg2: string,
+    primaryImg3: string
 }
 
 export type SectionHeadingType = {

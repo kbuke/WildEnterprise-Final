@@ -27,7 +27,7 @@ class SpecificSite(BaseResource):
     model = SiteModel
 
     field_map = {
-        "ame": "name",
+        "name": "name",
         "location": "siteLocation",
         "intro": "siteIntro",
         "headImg": "head_img",

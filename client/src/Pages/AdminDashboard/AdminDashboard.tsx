@@ -1,26 +1,56 @@
 import { useNavigate } from "react-router-dom";
 import { useAdminLogout } from "../../Hooks/useAdminLogout";
+import { AdminLogout } from "./Components/AdminLogout";
+import type { DashboardType } from "../../Types";
+import { DashboardRow } from "./Components/DashboardRow";
+import { groupsOfThree } from "../../Components/groupsOfThree";
 
 export function AdminDashboard(){
-    const navigate = useNavigate();
-    const adminLogout = useAdminLogout();
+    const navigate = useNavigate()
 
-    const handleLogout = () => {
-        adminLogout.mutate(undefined, {
-            onSuccess: () => {
-                navigate("/adminlogin");
-            }
-        });
-    };
+    const dashboardOptions: DashboardType[] = [
+        {
+            bgImg: "/SiteDbImg.jpg",
+            bgTitle: "Sites",
+            bgUrl: "/adminsites"
+        },
 
+        {
+            bgImg: "BlogDbImg.jpg",
+            bgTitle: "Blogs",
+            bgUrl: "/adminblogs"
+        },
+
+        {
+            bgImg: "/TeamDbImg.jpg",
+            bgTitle: "Teams",
+            bgUrl: "/adminTeams"
+        }
+    ]
+
+    const groups = groupsOfThree(dashboardOptions)
+
+    
     return(
-        <div>
-            <button
-                onClick={handleLogout}
-                className="bg-red-600 text-white cursor-pointer"
+        <div
+            className="px-6 flex flex-col gap-4"
+        >
+            <div
+                className="flex flex-col gap-4"
             >
-                Logout
-            </button>
+                <div>
+                    {groups.map((group, index) => {
+                        return(
+                            <DashboardRow 
+                                key={index}
+                                group={group}
+                                navigate={navigate}
+                            />
+                        )
+                    })}
+                </div>
+            </div>
+            <AdminLogout />
         </div>
     )
 }

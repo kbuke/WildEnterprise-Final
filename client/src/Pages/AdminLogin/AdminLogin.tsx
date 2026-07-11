@@ -23,7 +23,6 @@ export function AdminLogin(){
         console.log(formData)
         postAdminLogin.mutate(formData,{
             onSuccess: () => {
-                console.log("nice one")
                 navigate("/admindashboard")
             }
         })

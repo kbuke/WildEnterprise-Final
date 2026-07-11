@@ -9,6 +9,7 @@ import { AuthenticationApproved } from "./Pages/AuthenticationApproved/Authentic
 import { AdminLogin } from "./Pages/AdminLogin/AdminLogin.tsx";
 import { AdminDashboard } from "./Pages/AdminDashboard/AdminDashboard.tsx";
 import { ProtectedAdminRoute } from "./Components/ProtectedAdminRoute.tsx";
+import { AdminSites } from "./Pages/AdminSites/AdminSites.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +25,8 @@ export const router = createBrowserRouter([
             {
                 element: <ProtectedAdminRoute />,
                 children: [
-                    {path: "/admindashboard", element: <AdminDashboard />}
+                    {path: "/admindashboard", element: <AdminDashboard />},
+                    {path: "/adminsites", element: <AdminSites />}
                 ]
             }
         ]
