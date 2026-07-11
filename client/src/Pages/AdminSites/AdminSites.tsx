@@ -5,6 +5,7 @@ import { PopUp } from "../../Components/PopUp"
 import { PostNewSite } from "./Components/PostNewSite"
 import type { SiteType } from "../../Types"
 import { DeleteSite } from "./Components/DeleteSite"
+import { PatchSite } from "./Components/PatchSite"
 
 export function AdminSites(){
 
@@ -38,6 +39,19 @@ export function AdminSites(){
                     />
                 </PopUp>
             }
+
+            {siteAction === "Patch" && selectedSite &&
+                <PopUp>
+                    <PatchSite 
+                        site={selectedSite}
+                        onClose={() => {
+                            setSiteAction(undefined)
+                            setSelectedSite(undefined)
+                        }}
+                    />
+                </PopUp>
+            }
+
             <div
                 className="flex flex-col w-full py-4"
             >
@@ -66,7 +80,7 @@ export function AdminSites(){
                         >
                             <img 
                                 src={site.head_img}
-                                className="rounded-t"
+                                className="rounded-t h-60 w-full"
                             />
 
                             <div
@@ -80,6 +94,10 @@ export function AdminSites(){
 
                                 <div
                                     className="bg-white h-12 flex items-center justify-between px-20 rounded-full mt-2 cursor-pointer hover:bg-gray-600 hover:text-white duration-200"
+                                    onClick={() => {
+                                        setSelectedSite(site)
+                                        setSiteAction("Patch")
+                                    }}
                                 >
                                     <PencilIcon 
                                         className="h-10 w-10"
