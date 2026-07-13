@@ -3,10 +3,13 @@ import { useFetchSiteImg } from "../../Hooks/SiteImgHooks/useFetchSiteImg"
 import { TrashIcon } from "@heroicons/react/20/solid"
 import { PopUp } from "../../Components/PopUp"
 import { PostSiteImg } from "./Components/PostSiteImg"
+import type { SiteImagesType } from "../../Types"
+import { DeleteSiteImg } from "./Components/DeleteSiteImg"
 
 export function AdminSiteImages(){
 
     const [siteImgAction, setSiteImgAction] = useState<"Post" | "Delete">()
+    const [selectedImg, setSelectedImg] = useState<SiteImagesType>()
 
     const {
         siteImages,
@@ -14,8 +17,6 @@ export function AdminSiteImages(){
         error,
         isLoading
     } = useFetchSiteImg()
-
-    console.log(siteImages)
 
     return(
         <div
@@ -42,6 +43,19 @@ export function AdminSiteImages(){
                 </PopUp>
             }
 
+            {siteImgAction === "Delete" && selectedImg &&
+                <PopUp>
+                    <DeleteSiteImg 
+                        id={selectedImg.id}
+                        url={selectedImg.url}
+                        onClose={() => {
+                            setSelectedImg(undefined)
+                            setSiteImgAction(undefined)
+                        }}
+                    />
+                </PopUp>
+            }
+
             <div
                 className="grid grid-cols-3 gap-6 mx-4 mt-6"
             >
@@ -62,6 +76,7 @@ export function AdminSiteImages(){
                             >
                                 <TrashIcon 
                                     className="h-10 w-10 border rounded-full cursor-pointer"
+                                    onClick={() => setSelectedImg(image)}
                                 />
                             </div>
                         </div>

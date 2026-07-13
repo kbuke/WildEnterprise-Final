@@ -15,6 +15,7 @@ from resources.AdminLogout import AdminLogout
 from resources.AdminCheckSession import AdminCheckSession
 from resources.Inhabitants import InhabitantsList, SpecificInhabitants
 from resources.SiteImage import SiteImgList, SpecificSiteImg
+from resources.Events import EventsList, SpecificEvent
 
 api.add_resource(SitesList, "/sites")
 api.add_resource(SpecificSite, "/sites/<int:id>")
@@ -49,6 +50,9 @@ api.add_resource(SpecificInhabitants, "/inhabitants/<int:id>")
 
 api.add_resource(SiteImgList, "/siteimages")
 api.add_resource(SpecificSiteImg, "/siteimages/<int:id>")
+
+api.add_resource(EventsList, "/events")
+api.add_resource(SpecificEvent, "/events/<int:id>")
 
 if __name__ == "__main__":
     app.run(port = 5555, debug = True)

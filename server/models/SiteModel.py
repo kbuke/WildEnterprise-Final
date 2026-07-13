@@ -38,6 +38,7 @@ class SiteModel(db.Model, SerializerMixin):
         "-blogs.sites",
         "-inhabitants.site",
         "-images.site",
+        "-events.site",
     )
 
     @validates("name")

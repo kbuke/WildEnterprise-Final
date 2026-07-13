@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useAdminLogout } from "../../Hooks/useAdminLogout";
 import { AdminLogout } from "./Components/AdminLogout";
 import type { DashboardType } from "../../Types";
 import { DashboardRow } from "./Components/DashboardRow";
