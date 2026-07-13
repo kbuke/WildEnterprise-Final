@@ -5,6 +5,7 @@ import { SiteInfo } from "./Components/SiteInfo"
 import { SiteAnimals } from "./Components/SiteAnimals"
 import { SiteBlogs } from "./Components/SiteBlogs"
 import { SiteInhabitants } from "./Components/SiteInhabitants"
+import { SiteImgs } from "./Components/SiteImgs"
 
 type SpecificSiteParamType ={
     id: string
@@ -96,6 +97,11 @@ export function SpecificSites(){
             <SiteBlogs 
                 name={site.name}
                 blogs={site.blogs}
+            />
+
+            <SiteImgs 
+                images={site.images}
+                name={site.name}
             />
         </section>
     )

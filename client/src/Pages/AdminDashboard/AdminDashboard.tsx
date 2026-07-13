@@ -24,7 +24,19 @@ export function AdminDashboard(){
         {
             bgImg: "/TeamDbImg.jpg",
             bgTitle: "Teams",
-            bgUrl: "/adminTeams"
+            bgUrl: "/adminteams"
+        },
+
+        {
+            bgImg: "InhabitantsDbImg.jpg",
+            bgTitle: "Inhabitants",
+            bgUrl: "/admininhabitants"
+        },
+
+        {
+            bgImg: "SiteImgBg.jpg",
+            bgTitle: "Site Images",
+            bgUrl: "/adminsiteimages"
         }
     ]
 

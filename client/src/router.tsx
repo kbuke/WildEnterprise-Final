@@ -10,6 +10,8 @@ import { AdminLogin } from "./Pages/AdminLogin/AdminLogin.tsx";
 import { AdminDashboard } from "./Pages/AdminDashboard/AdminDashboard.tsx";
 import { ProtectedAdminRoute } from "./Components/ProtectedAdminRoute.tsx";
 import { AdminSites } from "./Pages/AdminSites/AdminSites.tsx";
+import { AdminInhabitants } from "./Pages/AdminInhabitants/AdminInhabitants.tsx";
+import { AdminSiteImages } from "./Pages/AdminSiteImages/AdminSiteImages.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -26,7 +28,9 @@ export const router = createBrowserRouter([
                 element: <ProtectedAdminRoute />,
                 children: [
                     {path: "/admindashboard", element: <AdminDashboard />},
-                    {path: "/adminsites", element: <AdminSites />}
+                    {path: "/adminsites", element: <AdminSites />},
+                    {path: "/admininhabitants", element: <AdminInhabitants />},
+                    {path: "/adminsiteimages", element: <AdminSiteImages />}
                 ]
             }
         ]

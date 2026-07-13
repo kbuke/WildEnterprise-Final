@@ -20,7 +20,7 @@ export function DashboardRow({
                 <DashboardCard 
                     option={heroOption}
                     onClick={() => navigate(heroOption.bgUrl)}
-                    className="h-100"
+                    className="h-160"
                 />
             )}
 

@@ -20,6 +20,10 @@ class SiteModel(db.Model, SerializerMixin):
     primary_img_1 = db.Column(db.String, nullable = False)
     primary_img_2 = db.Column(db.String, nullable = False)
     primary_img_3 = db.Column(db.String, nullable = False)
+    # Add Info alluding to site-location info such as:
+        # coordinates 
+        # location_info text 
+    # Want to render the info text and the map on the fe
 
     # Need to link up with Site Images, to display several images for each site
     # Need to link up with Site Hotels (if they have any)

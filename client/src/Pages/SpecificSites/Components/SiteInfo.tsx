@@ -11,7 +11,7 @@ export function SiteInfo({ name, info, img1, img2, img3 }: SiteInfoType) {
   const siteVideo: string | null = null
 
   return (
-    <section className="mb-4 py-10">
+    <section className="py-10">
       {selectedImg && (
         <PopUp>
           <EnlargedImg
@@ -57,7 +57,7 @@ export function SiteInfo({ name, info, img1, img2, img3 }: SiteInfoType) {
         </div>
       </div>
 
-      <SiteVideo name={name} siteVideo={siteVideo} />
+      <SiteVideo name={name} siteVideo={siteVideo? siteVideo : null} />
     </section>
   )
 }

@@ -83,6 +83,11 @@ export type PostNewSiteType = {
     primaryImg3: string
 }
 
+export type PostSiteImgType = {
+    url: string,
+    siteId: number
+}
+
 export type SectionHeadingType = {
     heading: string,
     textWhite: boolean
@@ -100,6 +105,12 @@ export type SiteInfoType = {
     img3: string
 }
 
+export type SiteImagesType = {
+    id: number,
+    url: string,
+    site_id: number
+}
+
 export type SiteType = {
     id: number,
     name: string,
@@ -113,7 +124,8 @@ export type SiteType = {
     primary_img_3: string,
     animals: AnimalType[],
     blogs: BlogType[],
-    inhabitants: InhabitantType[]
+    inhabitants: InhabitantType[],
+    images: SiteImagesType[]
 }
 
 export type UserType = {
