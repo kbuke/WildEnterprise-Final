@@ -13,6 +13,7 @@ from resources.BlogComments import BlogCommentsList, SpecificBlogComment
 from resources.AdminLogin import AdminLogin
 from resources.AdminLogout import AdminLogout
 from resources.AdminCheckSession import AdminCheckSession
+from resources.Inhabitants import InhabitantsList, SpecificInhabitants
 
 api.add_resource(SitesList, "/sites")
 api.add_resource(SpecificSite, "/sites/<int:id>")
@@ -41,6 +42,9 @@ api.add_resource(SpecificBlogComment, "/comments/<int:id>")
 api.add_resource(AdminLogin, "/admin/login")
 api.add_resource(AdminLogout, "/admin/logout")
 api.add_resource(AdminCheckSession, "/admin/checksession")
+
+api.add_resource(InhabitantsList, "/inhabitants")
+api.add_resource(SpecificInhabitants, "/inhabitants/<int:id>")
 
 if __name__ == "__main__":
     app.run(port = 5555, debug = True)

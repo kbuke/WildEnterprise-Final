@@ -3,6 +3,7 @@ from models.AnimalModel import AnimalModel
 from models.SiteAnimalsModel import SiteAnimalsModel
 from models.BlogModel import BlogModel
 from models.SiteBlogModel import SiteBlogModel
+from models.InhabitantsModel import InhabitantsModel
 
 from app import app 
 from config import db 
@@ -162,7 +163,20 @@ def seed_site_articles():
     db.session.commit()
     print(f"Seeded {len(site_articles)} site articles")
 
-# -----------------------------  -----------------------------
+# ----------------------------- Seed Inhabitants -----------------------------
+INHABITANTS = [
+    {
+        "name": "Tester",
+        "banner_img": "https://i.ibb.co/PRYvcvP/KT-190611-Wild-Trust-Reflections-Shoot-9203.jpg",
+        "info": "The rural communities surrounding Dartmoor in KwaZulu-Natal are predominantly made up of Zulu people, one of South Africa's largest and most culturally significant indigenous groups. For generations, these communities have relied on cattle herding as an essential part of their way of life. Cattle are far more than a source of food or income; they represent wealth, social status, and cultural identity. They play a central role in important ceremonies such as marriages, ancestral rituals, and traditional celebrations, reflecting the deep connection between the Zulu people, their livestock, and their heritage. Many families in the Dartmoor area continue to practice traditional livestock farming alongside small-scale crop cultivation. Indigenous Nguni cattle are especially valued because they are well adapted to the local climate, resistant to many diseases and parasites, and capable of thriving on natural grazing. Although modern farming methods have become more common, cattle herding remains an important part of rural life, preserving knowledge and customs that have been passed down through generations. The continued importance of livestock demonstrates the resilience of Zulu cultural traditions and their enduring relationship with the natural environment."
+    }
+]
+
+def seed_inhabitants():
+    inhabitants = [InhabitantsModel(**data) for data in INHABITANTS]
+    db.session.add_all(inhabitants)
+    db.session.commit()
+    print(f"Seeded {len(inhabitants)} inhabitants")
 
 # -----------------------------  -----------------------------
 
@@ -177,3 +191,4 @@ if __name__ == "__main__":
         seed_site_animals()
         seed_articles()
         seed_site_articles()
+        seed_inhabitants()
