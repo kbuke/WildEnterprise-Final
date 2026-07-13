@@ -53,13 +53,23 @@ export type DeleteSiteType = {
     onClose: () => void
 }
 
+export type InhabitantType = {
+    id: number,
+    name: string,
+    banner_img: string,
+    info: string,
+    site_id: number
+}
+
 export type OutletContextType = {
     loggedUser: UserType
 }
 
 export type ParamsType = {
     slug: string,
-    id: string
+    id: string,
+    info: string,
+    site_id: number
 }
 
 export type PostNewSiteType = {
@@ -102,7 +112,8 @@ export type SiteType = {
     primary_img_2: string,
     primary_img_3: string,
     animals: AnimalType[],
-    blogs: BlogType[]
+    blogs: BlogType[],
+    inhabitants: InhabitantType[]
 }
 
 export type UserType = {

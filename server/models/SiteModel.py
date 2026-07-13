@@ -32,6 +32,8 @@ class SiteModel(db.Model, SerializerMixin):
     serialize_rules = (
         "-animals.sites",
         "-blogs.sites",
+        "-inhabitants.site",
+        "-images.site",
     )
 
     @validates("name")

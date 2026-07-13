@@ -7,8 +7,6 @@ function App() {
 
   if(isLoading) return <p>Loading...</p>
 
-  console.log(loggedUser)
-
   return (
     <>
       <NavBar loggedUser={isLoading ? null : loggedUser} />

@@ -8,3 +8,11 @@ class InhabitantsModel(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable = False, unique = True)
     banner_img = db.Column(db.String, nullable = False)
     info = db.Column(db.String, nullable = False)
+
+    site_id = db.Column(db.Integer, db.ForeignKey("sites.id"))
+
+    site = db.relationship("SiteModel", backref = "inhabitants")
+
+    serialize_rules = (
+        "-site.inhabitants",
+    )

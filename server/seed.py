@@ -4,6 +4,7 @@ from models.SiteAnimalsModel import SiteAnimalsModel
 from models.BlogModel import BlogModel
 from models.SiteBlogModel import SiteBlogModel
 from models.InhabitantsModel import InhabitantsModel
+from models.SiteImgModel import SiteImgModel
 
 from app import app 
 from config import db 
@@ -168,7 +169,8 @@ INHABITANTS = [
     {
         "name": "Tester",
         "banner_img": "https://i.ibb.co/PRYvcvP/KT-190611-Wild-Trust-Reflections-Shoot-9203.jpg",
-        "info": "The rural communities surrounding Dartmoor in KwaZulu-Natal are predominantly made up of Zulu people, one of South Africa's largest and most culturally significant indigenous groups. For generations, these communities have relied on cattle herding as an essential part of their way of life. Cattle are far more than a source of food or income; they represent wealth, social status, and cultural identity. They play a central role in important ceremonies such as marriages, ancestral rituals, and traditional celebrations, reflecting the deep connection between the Zulu people, their livestock, and their heritage. Many families in the Dartmoor area continue to practice traditional livestock farming alongside small-scale crop cultivation. Indigenous Nguni cattle are especially valued because they are well adapted to the local climate, resistant to many diseases and parasites, and capable of thriving on natural grazing. Although modern farming methods have become more common, cattle herding remains an important part of rural life, preserving knowledge and customs that have been passed down through generations. The continued importance of livestock demonstrates the resilience of Zulu cultural traditions and their enduring relationship with the natural environment."
+        "info": "The rural communities surrounding Dartmoor in KwaZulu-Natal are predominantly made up of Zulu people, one of South Africa's largest and most culturally significant indigenous groups. For generations, these communities have relied on cattle herding as an essential part of their way of life. Cattle are far more than a source of food or income; they represent wealth, social status, and cultural identity. They play a central role in important ceremonies such as marriages, ancestral rituals, and traditional celebrations, reflecting the deep connection between the Zulu people, their livestock, and their heritage. Many families in the Dartmoor area continue to practice traditional livestock farming alongside small-scale crop cultivation. Indigenous Nguni cattle are especially valued because they are well adapted to the local climate, resistant to many diseases and parasites, and capable of thriving on natural grazing. Although modern farming methods have become more common, cattle herding remains an important part of rural life, preserving knowledge and customs that have been passed down through generations. The continued importance of livestock demonstrates the resilience of Zulu cultural traditions and their enduring relationship with the natural environment.",
+        "site_id": 1
     }
 ]
 
@@ -178,7 +180,39 @@ def seed_inhabitants():
     db.session.commit()
     print(f"Seeded {len(inhabitants)} inhabitants")
 
-# -----------------------------  -----------------------------
+# ----------------------------- Seed Site Images -----------------------------
+SITE_IMAGES = [
+    {
+        "url": "https://i.ibb.co/PRYvcvP/KT-190611-Wild-Trust-Reflections-Shoot-9203.jpg",
+        "site_id": 1
+    },
+
+    {
+        "url": "https://i.ibb.co/S2Pw6QG/Dartmoor-114.jpg",
+        "site_id": 1
+    },
+
+    {
+        "url": "https://i.ibb.co/7JX9VHCg/Dartmoor-39.jpg",
+        "site_id": 1
+    },
+
+    {
+        "url": "https://i.ibb.co/7dnLdfBb/Dartmoor-169.jpg",
+        "site_id": 1
+    },
+
+    {
+        "url": "https://i.ibb.co/gMPBTkTK/Dartmoor-180.jpg",
+        "site_id": 1
+    }
+]
+
+def seed_site_images():
+    images = [SiteImgModel(**data) for data in SITE_IMAGES]
+    db.session.add_all(images)
+    db.session.commit()
+    print(f"Seeded {len(images)} images")
 
 # -----------------------------  -----------------------------
 
@@ -192,3 +226,4 @@ if __name__ == "__main__":
         seed_articles()
         seed_site_articles()
         seed_inhabitants()
+        seed_site_images()

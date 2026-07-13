@@ -1,13 +1,17 @@
 import { useParams } from "react-router-dom"
-import type { ParamsType } from "../../Types"
 import { useFetchSpecificSite } from "../../Hooks/useFetchSpecificSite"
 import { ArrowDownCircleIcon, MapPinIcon } from "@heroicons/react/24/outline"
 import { SiteInfo } from "./Components/SiteInfo"
 import { SiteAnimals } from "./Components/SiteAnimals"
 import { SiteBlogs } from "./Components/SiteBlogs"
+import { SiteInhabitants } from "./Components/SiteInhabitants"
+
+type SpecificSiteParamType ={
+    id: string
+}
 
 export function SpecificSites(){
-    const { id } = useParams<ParamsType>()
+    const { id } = useParams<SpecificSiteParamType>()
 
     const siteId = Number(id)
 
@@ -77,6 +81,11 @@ export function SpecificSites(){
                 img1={site?.primary_img_1}
                 img2={site?.primary_img_2}
                 img3={site?.primary_img_3}
+            />
+
+            <SiteInhabitants 
+                inhabitants = {site.inhabitants}
+                name={site.name}
             />
 
             <SiteAnimals 
