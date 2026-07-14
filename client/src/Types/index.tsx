@@ -1,5 +1,3 @@
-import type { FieldError, UseFormRegisterReturn } from "react-hook-form"
-
 export type AnimalType = {
     id?: number,
     img: string,
@@ -53,6 +51,17 @@ export type DeleteSiteType = {
     onClose: () => void
 }
 
+export type EventTypes = {
+    name: string,
+    img: string,
+    start_date: string,
+    end_date: string | null,
+    start_time: string,
+    end_time: string,
+    info: string,
+    site_id: number
+}
+
 export type InhabitantType = {
     id: number,
     name: string,
@@ -70,6 +79,17 @@ export type ParamsType = {
     id: string,
     info: string,
     site_id: number
+}
+
+export type PostEventType = {
+    name: string,
+    img: string,
+    startDate: string,
+    endDate?: string,
+    startTime: string,
+    endTime: string,
+    info: string,
+    siteId: number
 }
 
 export type PostNewSiteType = {

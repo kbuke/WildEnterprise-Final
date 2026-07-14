@@ -6,6 +6,7 @@ class EventsList(BaseResource):
 
     field_map = {
         "name": "name",
+        "img": "img",
         "startDate": "start_date",
         "endDate": "end_date",
         "startTime": "start_time",
@@ -25,6 +26,7 @@ class SpecificEvent(BaseResource):
 
     field_map = {
         "name": "name",
+         "img": "img",
         "startDate": "start_date",
         "endDate": "end_date",
         "startTime": "start_time",

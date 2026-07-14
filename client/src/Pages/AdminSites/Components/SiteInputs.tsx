@@ -19,7 +19,7 @@ export function SiteInputs({
                 placeholder="Please enter site name"
                 extraClasses="newFormInput"
                 register={register("name", {
-                    required: "Pattern is required"
+                    required: "Site Name is required"
                 })}
                 error={errors.name}
             />
