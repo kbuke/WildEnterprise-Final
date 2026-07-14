@@ -45,7 +45,6 @@ export function PatchEvent({
     } = usePatchEvent(event.id)
 
     const onSubmit = (formData: PostEventType) => {
-        console.log(formData.endDate)
         const payload: PatchEventPayload = {
             ...formData,
             endDate: formData.endDate ?? null

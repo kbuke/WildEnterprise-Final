@@ -6,6 +6,7 @@ import { useFetchEvents } from "../../Hooks/EventHooks/useFetchEvents"
 import { formatDate } from "../../Utils/formatDate"
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline"
 import { PatchEvent } from "./Components/PatchEvent"
+import { DeleteEvent } from "./Components/DeleteEvent"
 
 export function AdminEvents(){
 
@@ -13,11 +14,8 @@ export function AdminEvents(){
     const [selectedEvent, setSelectedEvent] = useState<EventTypes>()
 
     const eventsData = useFetchEvents()
-    console.log(eventsData)
 
     const allEvents = eventsData.events
-
-    console.log(allEvents)
 
     return(
         <div
@@ -42,7 +40,20 @@ export function AdminEvents(){
                     />
                 </PopUp>
             }
-            
+
+            {eventAction === "Delete" && selectedEvent &&
+                <PopUp>
+                    <DeleteEvent 
+                        id={selectedEvent.id}
+                        name={selectedEvent.name}
+                        onClose={() => {
+                            setEventAction(undefined)
+                            setSelectedEvent(undefined)
+                        }}
+                    />
+                </PopUp>
+            }
+
             <h1
                 className="adminH1"
             >
