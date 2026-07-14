@@ -52,6 +52,7 @@ export type DeleteSiteType = {
 }
 
 export type EventTypes = {
+    id: number
     name: string,
     img: string,
     start_date: string,
@@ -79,6 +80,10 @@ export type ParamsType = {
     id: string,
     info: string,
     site_id: number
+}
+
+export type PatchEventPayload = Omit<PostEventType, "endDate"> & {
+    endDate: string | null
 }
 
 export type PostEventType = {
@@ -111,6 +116,11 @@ export type PostSiteImgType = {
 export type SectionHeadingType = {
     heading: string,
     textWhite: boolean
+}
+
+export type SelectedEventType = {
+    onCancel: () => void,
+    event: EventTypes
 }
 
 export type SignInUpType = {

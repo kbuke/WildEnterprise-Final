@@ -4,6 +4,8 @@ import { PopUp } from "../../Components/PopUp"
 import { PostEvent } from "./Components/PostEvent"
 import { useFetchEvents } from "../../Hooks/EventHooks/useFetchEvents"
 import { formatDate } from "../../Utils/formatDate"
+import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline"
+import { PatchEvent } from "./Components/PatchEvent"
 
 export function AdminEvents(){
 
@@ -28,6 +30,19 @@ export function AdminEvents(){
                     />
                 </PopUp>
             }
+
+            {eventAction === "Patch" && selectedEvent &&
+                <PopUp>
+                    <PatchEvent 
+                        onCancel={() => {
+                            setEventAction(undefined)
+                            setSelectedEvent(undefined)
+                        }}
+                        event={selectedEvent}
+                    />
+                </PopUp>
+            }
+            
             <h1
                 className="adminH1"
             >
@@ -61,7 +76,7 @@ export function AdminEvents(){
                             />
 
                             <div
-                                className="py-4"
+                                className="py-6"
                             >
                                 <h1>{event.name}</h1>
 
@@ -85,6 +100,25 @@ export function AdminEvents(){
                                 >
                                     More Info
                                 </button>
+
+                                 <div
+                                    className="flex flex-row gap-4 mt-6 text-center justify-between"
+                                >
+                                    <PencilIcon 
+                                        className="h-10 w-10 text-black bg-white rounded-full cursor-pointer"
+                                        onClick={() => {
+                                            setEventAction("Patch")
+                                            setSelectedEvent(event)
+                                        }}
+                                    />
+                                    <TrashIcon 
+                                        className="h-10 w-10 text-black bg-white rounded-full cursor-pointer"
+                                        onClick={() => {
+                                            setEventAction("Delete")
+                                            setSelectedEvent(event)
+                                        }}
+                                    />
+                            </div>
                             </div>
                         </div>
                     )

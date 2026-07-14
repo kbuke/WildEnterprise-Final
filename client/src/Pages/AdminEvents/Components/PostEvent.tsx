@@ -3,6 +3,7 @@ import type { PostEventType } from "../../../Types"
 import { EventInputs } from "./EventInputs"
 import { useState } from "react"
 import { usePostEvent } from "../../../Hooks/EventHooks/usePostEvent"
+import { useOneDayEvent } from "../../../Hooks/EventHooks/useOneDayEvent"
 
 type CancelEventPost = {
     onClose: () => void
@@ -12,7 +13,7 @@ export function PostEvent({
     onClose
 }: CancelEventPost){
 
-    const [oneDayEvent, setOneDayEvent] = useState<boolean>(true)
+    // const [oneDayEvent, setOneDayEvent] = useState<boolean>(true)
 
     const {
         register,
@@ -24,15 +25,16 @@ export function PostEvent({
         shouldUnregister: true // tells RHF that when a fields input unmounts we forget its value entirely
     })
 
-    const handleToggleOneDayEvent = () => {
-        setOneDayEvent((prev) => {
-            const next = !prev
-            if(next){
-                setValue("endDate", undefined)
-            }
-            return next
-        })
-    }
+    // const handleToggleOneDayEvent = () => {
+    //     setOneDayEvent((prev) => {
+    //         const next = !prev
+    //         if(next){
+    //             setValue("endDate", undefined)
+    //         }
+    //         return next
+    //     })
+    // }
+    const {oneDayEvent, handleToggleOneDayEvent} = useOneDayEvent({setValue: setValue})
 
     const {mutate, isPending, isError, error} = usePostEvent()
 
