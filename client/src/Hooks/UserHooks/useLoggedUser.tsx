@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { UserType } from "../Types";
+import type { UserType } from "../../Types/UserTypes";
 
 async function getLoggedUser(): Promise<UserType | null> {
     const response = await fetch("/api/auth/checksession", {

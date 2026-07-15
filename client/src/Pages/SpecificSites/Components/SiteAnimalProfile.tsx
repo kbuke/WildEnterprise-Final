@@ -1,5 +1,5 @@
 import { ExclamationTriangleIcon, FolderIcon } from "@heroicons/react/24/outline";
-import type { AnimalProfileType, AnimalType } from "../../../Types";
+import type { AnimalProfileType, AnimalType } from "../../../Types/AnimalTypes";
 
 export function SiteAnimalProfile({
     img,

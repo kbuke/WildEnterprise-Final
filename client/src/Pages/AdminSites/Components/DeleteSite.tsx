@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import type { DeleteSiteType } from "../../../Types";
+import type { DeleteSiteType } from "../../../Types/SiteTypes";
 import { useDeleteSite } from "../../../Hooks/SiteHooks/useDeleteSite";
 
 

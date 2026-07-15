@@ -42,6 +42,12 @@ export function AdminDashboard(){
             bgImg: "EventsBg.jpg",
             bgTitle: "Events",
             bgUrl: "/adminevents"
+        },
+
+        {
+            bgImg: "WebAppBg.jpg",
+            bgTitle: "Web Apps",
+            bgUrl: "/adminwebsites"
         }
     ]
 

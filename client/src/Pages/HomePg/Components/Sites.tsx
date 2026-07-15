@@ -1,6 +1,6 @@
 import { MapPinIcon } from "@heroicons/react/24/outline"
 import { SectionHeading } from "../../../Components/SectionHeadings"
-import { useFetchSites } from "../../../Hooks/useFetchSites"
+import { useFetchSites } from "../../../Hooks/SiteHooks/useFetchSites"
 import { Link } from "react-router-dom"
 
 export function Sites() {

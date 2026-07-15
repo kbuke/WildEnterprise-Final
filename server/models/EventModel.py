@@ -24,6 +24,12 @@ class EventModel(db.Model, SerializerMixin):
     site_id = foreign_key_id("sites")
     site = one_to_many_relationship("SiteModel", "events")
 
+    # have a timetable of events 
+    # have a maximum amount of space (atleast for some events)
+    # allow signed in users to favourite evets 
+    # allow signed in users to add to upcoming events after purchasing tix 
+    # not all events may be at a site, some may be in offices, or elsewhere that WildEnterprise will be involved in set up appropriate models if need be
+
     @validates("start_date")
     def validate_start_date(self, key, value):
         return to_date(value)

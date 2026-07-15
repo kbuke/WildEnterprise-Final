@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom"
-import type { UserType } from "../Types"
+import type { UserType } from "../Types/UserTypes"
 
 type NavLinkType = {
     link: string,

@@ -5,6 +5,7 @@ from models.BlogModel import BlogModel
 from models.SiteBlogModel import SiteBlogModel
 from models.InhabitantsModel import InhabitantsModel
 from models.SiteImgModel import SiteImgModel
+from models.OtherSitesModel import OtherSiteModel
 
 from app import app 
 from config import db 
@@ -213,6 +214,8 @@ def seed_site_images():
     db.session.add_all(images)
     db.session.commit()
     print(f"Seeded {len(images)} images")
+
+# ----------------------------- -----------------------------
 
 # -----------------------------  -----------------------------
 

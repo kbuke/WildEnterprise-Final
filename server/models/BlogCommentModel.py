@@ -13,3 +13,5 @@ class BlogCommentModel(db.Model, SerializerMixin):
 
     user = db.relationship("UserModel", backref = "blog_comments")
     blog = db.relationship("BlogModel", backref = "blog_comments")
+
+    # allow responses to comments 

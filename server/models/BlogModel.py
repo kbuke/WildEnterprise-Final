@@ -28,6 +28,8 @@ class BlogModel(db.Model, SerializerMixin):
     published_at = db.Column(db.DateTime, nullable=True)
     edited_at = db.Column(db.DateTime, nullable=True)
 
+    # allow pictures to be added to a certain blog (one-to-many)
+
     serialize_rules = (
         "-blog_comments.blog",
         "-blog_comments.user.blog_comments",

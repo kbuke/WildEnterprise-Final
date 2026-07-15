@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useCheckAdminSession } from "../Hooks/useCheckAdminSession";
+import { useCheckAdminSession } from "../Hooks/UserHooks/useCheckAdminSession";
 
 export function ProtectedAdminRoute() {
     const { data, isLoading } = useCheckAdminSession();

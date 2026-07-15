@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { UseFormSetValue } from "react-hook-form";
-import type { PostEventType } from "../../Types";
+import type { PostEventType } from "../../Types/EventTypes";
 
 type OneDayEventType = {
     setValue: UseFormSetValue<PostEventType>,

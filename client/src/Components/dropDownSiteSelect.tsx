@@ -1,6 +1,6 @@
 import type { FieldError, UseFormRegisterReturn } from "react-hook-form"
-import { useFetchSites } from "../Hooks/useFetchSites"
-import type { SiteType } from "../Types"
+import { useFetchSites } from "../Hooks/SiteHooks/useFetchSites"
+import type { SiteType } from "../Types/SiteTypes"
 
 type DropDownSiteelectType = {
     register: UseFormRegisterReturn,

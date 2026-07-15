@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import type { PatchEventPayload } from "../../Types"
+import type { PatchEventPayload } from "../../Types/EventTypes"
 import { queryClient } from "../../ReactQuery/queryClient"
 
 type PatchEventError = {

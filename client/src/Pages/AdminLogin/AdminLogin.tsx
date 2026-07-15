@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { TextInputs } from "../../Components/textInputs";
-import { usePostAdminLogin } from "../../Hooks/usePostAdminLogin";
+import { usePostAdminLogin } from "../../Hooks/UserHooks/usePostAdminLogin";
 import { useNavigate } from "react-router-dom";
 
 interface AdminLoginForm{

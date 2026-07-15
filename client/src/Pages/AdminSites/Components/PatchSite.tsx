@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form"
 import { SiteInputs } from "./SiteInputs"
 import { usePatchSite } from "../../../Hooks/SiteHooks/usePatchSite"
-import type { PostNewSiteType, SiteType } from "../../../Types"
+import type { PostNewSiteType, SiteType } from "../../../Types/SiteTypes"
 
 type PatchSiteProps = {
     site: SiteType

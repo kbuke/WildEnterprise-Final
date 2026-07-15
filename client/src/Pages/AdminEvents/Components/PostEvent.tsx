@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import type { PostEventType } from "../../../Types"
+import type { PostEventType } from "../../../Types/EventTypes"
 import { EventInputs } from "./EventInputs"
 import { usePostEvent } from "../../../Hooks/EventHooks/usePostEvent"
 import { useOneDayEvent } from "../../../Hooks/EventHooks/useOneDayEvent"

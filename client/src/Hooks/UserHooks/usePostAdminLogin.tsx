@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { queryClient } from "../ReactQuery/queryClient";
+import { queryClient } from "../../ReactQuery/queryClient";
 
 type AdminPayload = {
     email: string;

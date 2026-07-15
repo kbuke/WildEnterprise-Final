@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAdminLogout } from "../../../Hooks/useAdminLogout";
+import { useAdminLogout } from "../../../Hooks/UserHooks/useAdminLogout";
 
 export function AdminLogout(){
     const navigate = useNavigate()

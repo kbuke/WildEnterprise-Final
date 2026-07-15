@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import type { ParamsType } from "../../Types"
-import { useFetchSpecificBlog } from "../../Hooks/useFetchSpecificBlog"
+// import { useFetchSpecificBlog } from "../../Hooks/useFetchSpecificBlog"
+import { useFetchSpecificBlog } from "../../Hooks/Blogs/useFetchSpecificBlog"
 import { CalendarDaysIcon, EyeIcon, PencilIcon } from "@heroicons/react/24/outline"
 import { printDates } from "../../Utils/printDates"
 import { SpecificBlogContent } from "./Components/SpecificBlogContent"

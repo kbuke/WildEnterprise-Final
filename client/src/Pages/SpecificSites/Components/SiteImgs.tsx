@@ -1,5 +1,5 @@
 import { useState } from "react"
-import type { SiteImagesType } from "../../../Types"
+import type { SiteImagesType } from "../../../Types/SiteImgTypes"
 import { PopUp } from "../../../Components/PopUp"
 import { EnlargedImg } from "./EnlargedImg"
 
@@ -16,7 +16,7 @@ export function SiteImgs({
 
     return(
         <div
-            className="px-4 mt-4 bg-black/80 text-white pb-4"
+            className="px-4 bg-black/80 text-white pb-4"
         >
             {selectedImg &&
                 <PopUp>

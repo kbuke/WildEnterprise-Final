@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import type { PostNewSiteType } from "../../Types"
+import type { PostNewSiteType } from "../../Types/SiteTypes"
 import { queryClient } from "../../ReactQuery/queryClient"
 
 type PatchSiteError = {

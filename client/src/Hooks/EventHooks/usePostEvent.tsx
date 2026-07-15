@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import type { PostEventType } from "../../Types"
+import type { PostEventType } from "../../Types/EventTypes"
 import { queryClient } from "../../ReactQuery/queryClient"
 
 type PostEventError = {

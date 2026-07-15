@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 import { NavBar } from "./Utils/NavBar"
-import { useLoggedUser } from "./Hooks/useLoggedUser"
+import { useLoggedUser } from "./Hooks/UserHooks/useLoggedUser"
 
 function App() {
   const { loggedUser, isLoading } = useLoggedUser()

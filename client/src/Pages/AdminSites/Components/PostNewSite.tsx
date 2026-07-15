@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form"
-import { TextInputs } from "../../../Components/textInputs"
-import type { CloseCrudType, PostNewSiteType } from "../../../Types"
-import { TextArea } from "../../../Components/textarea"
+import type { CloseCrudType } from "../../../Types"
+import type { PostNewSiteType } from "../../../Types/SiteTypes"
 import { usePostSite } from "../../../Hooks/SiteHooks/usePostSite"
 import { SiteInputs } from "./SiteInputs"
 

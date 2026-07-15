@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { queryClient } from "../ReactQuery/queryClient";
+import { queryClient } from "../../ReactQuery/queryClient";
 
 async function deleteAdminSession(): Promise<{ message: string }> {
     const res = await fetch(`/api/admin/logout`, {

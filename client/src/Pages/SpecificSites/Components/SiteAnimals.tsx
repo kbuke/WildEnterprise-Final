@@ -1,5 +1,5 @@
 import { useState } from "react"
-import type { AnimalType } from "../../../Types"
+import type { AnimalType } from "../../../Types/AnimalTypes"
 import { SiteAnimalProfile } from "./SiteAnimalProfile"
 import { PopUp } from "../../../Components/PopUp"
 

@@ -1,4 +1,4 @@
-import { useLoggedUser } from "../../Hooks/useLoggedUser"
+import { useLoggedUser } from "../../Hooks/UserHooks/useLoggedUser"
 
 export function AuthenticationApproved(){
     const loggedUser = useLoggedUser()

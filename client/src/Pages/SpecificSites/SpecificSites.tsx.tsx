@@ -1,17 +1,22 @@
 import { useParams } from "react-router-dom"
-import { useFetchSpecificSite } from "../../Hooks/useFetchSpecificSite"
+// import { useFetchSpecificSite } from "../../Hooks/useFetchSpecificSite"
+import { useFetchSpecificSite } from "../../Hooks/SiteHooks/useFetchSpecificSite"
 import { ArrowDownCircleIcon, MapPinIcon } from "@heroicons/react/24/outline"
 import { SiteInfo } from "./Components/SiteInfo"
 import { SiteAnimals } from "./Components/SiteAnimals"
 import { SiteBlogs } from "./Components/SiteBlogs"
-import { SiteInhabitants } from "./Components/SiteInhabitants"
 import { SiteImgs } from "./Components/SiteImgs"
+import { useState } from "react"
+import { SiteNav } from "./Components/SiteNav"
+import { SiteEvents } from "./Components/SiteEvents"
 
 type SpecificSiteParamType ={
     id: string
 }
 
 export function SpecificSites(){
+    const [selectedSiteNav, setSelectedSiteNav] = useState<string>("About")
+
     const { id } = useParams<SpecificSiteParamType>()
 
     const siteId = Number(id)
@@ -76,33 +81,48 @@ export function SpecificSites(){
                 </div>
             </div>
 
-            <SiteInfo 
+            <SiteNav 
                 name={site.name}
-                info={site?.info}
-                img1={site?.primary_img_1}
-                img2={site?.primary_img_2}
-                img3={site?.primary_img_3}
+                selectedNav={selectedSiteNav}
+                setSelectedNav={(value: string) => setSelectedSiteNav(value)}
             />
 
-            <SiteInhabitants 
-                inhabitants = {site.inhabitants}
-                name={site.name}
-            />
+            {selectedSiteNav === "About" &&
+                <SiteInfo 
+                    name={site.name}
+                    info={site?.info}
+                    img1={site?.primary_img_1}
+                    img2={site?.primary_img_2}
+                    img3={site?.primary_img_3}
+                />
+            }
 
-            <SiteAnimals 
-                name={site.name}
-                animals={site.animals}
-            />
+            {selectedSiteNav === "Animals" &&
+                <SiteAnimals 
+                    name={site.name}
+                    animals={site.animals}
+                />
+            }
 
-            <SiteBlogs 
-                name={site.name}
-                blogs={site.blogs}
-            />
+            {selectedSiteNav === "News" &&
+                <SiteBlogs 
+                    name={site.name}
+                    blogs={site.blogs}
+                />
+            }
 
-            <SiteImgs 
-                images={site.images}
-                name={site.name}
-            />
+            {selectedSiteNav === "Images" &&
+                <SiteImgs 
+                    images={site.images}
+                    name={site.name}
+                />
+            }
+
+            {selectedSiteNav === "Events" &&
+                <SiteEvents 
+                    events={site.events}
+                />
+            }
         </section>
     )
 }

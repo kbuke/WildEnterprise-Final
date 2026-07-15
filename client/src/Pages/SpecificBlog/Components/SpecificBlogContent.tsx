@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form"
-import type { BlogCommentsType, OutletContextType, SiteType } from "../../../Types"
+import type { BlogCommentsType } from "../../../Types/BlogCommentTypes"
+import type { OutletContextType } from "../../../Types/UserTypes"
+import type { SiteType } from "../../../Types/SiteTypes"
 import { useOutletContext } from "react-router-dom"
-import { usePostBlogComments } from "../../../Hooks/usePostBlogComment"
+import { usePostBlogComments } from "../../../Hooks/Blogs/usePostBlogComment"
 
 type SpecificBlogType = {
     blogId: number

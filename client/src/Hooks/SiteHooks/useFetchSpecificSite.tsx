@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { SiteType } from "../Types";
+import type { SiteType } from "../../Types/SiteTypes";
 
 async function getSpecificSite(id:number): Promise<SiteType> {
     const response = await fetch(`/api/sites/${id}`)

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { BlogType } from "../Types";
+import type { BlogType } from "../../Types/BlogTypes";
 
 async function getSpecificBlog(id:number): Promise<BlogType> {
     const response = await fetch(`/api/blogs/${id}`)

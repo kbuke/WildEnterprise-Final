@@ -1,9 +1,9 @@
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline"
-import { useFetchSites } from "../../Hooks/useFetchSites"
+import { useFetchSites } from "../../Hooks/SiteHooks/useFetchSites"
 import { useState } from "react"
 import { PopUp } from "../../Components/PopUp"
 import { PostNewSite } from "./Components/PostNewSite"
-import type { SiteType } from "../../Types"
+import type { SiteType } from "../../Types/SiteTypes"
 import { DeleteSite } from "./Components/DeleteSite"
 import { PatchSite } from "./Components/PatchSite"
 

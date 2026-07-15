@@ -1,6 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
-import type { BlogCommentsType, BlogType } from "../Types";
-import { queryClient } from "../ReactQuery/queryClient";
+// import type { BlogCommentsType, BlogType } from "../Types";
+// import { queryClient } from "../ReactQuery/queryClient";
+import type { BlogCommentsType } from "../../Types/BlogCommentTypes";
+import type { BlogType } from "../../Types/BlogTypes";
+import { queryClient } from "../../ReactQuery/queryClient";
 
 type PostCommentPayload = {
     blogId: number,

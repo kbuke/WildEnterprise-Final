@@ -1,6 +1,6 @@
 import type { FieldErrors, UseFormRegister, UseFormWatch } from "react-hook-form";
 import { TextInputs } from "../../../Components/textInputs";
-import type { PostEventType } from "../../../Types";
+import type { PostEventType } from "../../../Types/EventTypes";
 import { TextArea } from "../../../Components/textarea";
 import { DropDownSiteSelect } from "../../../Components/dropDownSiteSelect";
 

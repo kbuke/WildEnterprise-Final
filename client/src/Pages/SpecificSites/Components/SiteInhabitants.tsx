@@ -1,4 +1,4 @@
-import type { InhabitantType } from "../../../Types";
+import type { InhabitantType } from "../../../Types/InhabitantTypes"
 
 interface SiteInhabitantType{
     inhabitants: InhabitantType[],

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { EventTypes } from "../../Types";
+import type { EventTypes } from "../../Types/EventTypes";
 
 async function fetchEvents(): Promise<EventTypes[]> {
     const response = await fetch("/api/events")

@@ -13,6 +13,7 @@ import { AdminSites } from "./Pages/AdminSites/AdminSites.tsx";
 import { AdminInhabitants } from "./Pages/AdminInhabitants/AdminInhabitants.tsx";
 import { AdminSiteImages } from "./Pages/AdminSiteImages/AdminSiteImages.tsx";
 import { AdminEvents } from "./Pages/AdminEvents/AdminEvents.tsx";
+import { AdminWebApps } from "./Pages/AdminWebApps/AdminWebApps.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -32,7 +33,8 @@ export const router = createBrowserRouter([
                     {path: "/adminsites", element: <AdminSites />},
                     {path: "/admininhabitants", element: <AdminInhabitants />},
                     {path: "/adminsiteimages", element: <AdminSiteImages />},
-                    {path: "/adminevents", element: <AdminEvents />}
+                    {path: "/adminevents", element: <AdminEvents />},
+                    {path: "/adminwebsites", element: <AdminWebApps />}
                 ]
             }
         ]

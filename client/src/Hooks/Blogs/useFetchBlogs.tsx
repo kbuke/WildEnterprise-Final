@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { BlogCommentsType } from "../Types";
+import type { BlogCommentsType } from "../../Types/BlogCommentTypes";
 
 async function getComments(): Promise<BlogCommentsType[]> {
     const response = await fetch("/api/comments")

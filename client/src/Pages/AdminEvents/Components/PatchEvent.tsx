@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import type { PatchEventPayload, PostEventType, SelectedEventType } from "../../../Types";
+import type { PatchEventPayload, PostEventType, SelectedEventType } from "../../../Types/EventTypes";
 import { EventInputs } from "./EventInputs";
 import { useOneDayEvent } from "../../../Hooks/EventHooks/useOneDayEvent";
 import { toDateInput } from "../../../Components/toDateInput";

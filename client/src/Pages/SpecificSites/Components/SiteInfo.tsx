@@ -1,5 +1,5 @@
 import { useState } from "react"
-import type { SiteInfoType } from "../../../Types"
+import type { SiteInfoType } from "../../../Types/SiteTypes"
 import { SiteVideo } from "./SiteVideo"
 import { PopUp } from "../../../Components/PopUp"
 import { EnlargedImg } from "./EnlargedImg"
@@ -11,7 +11,7 @@ export function SiteInfo({ name, info, img1, img2, img3 }: SiteInfoType) {
   const siteVideo: string | null = null
 
   return (
-    <section className="py-10">
+    <section>
       {selectedImg && (
         <PopUp>
           <EnlargedImg

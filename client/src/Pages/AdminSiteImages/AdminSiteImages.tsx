@@ -3,7 +3,7 @@ import { useFetchSiteImg } from "../../Hooks/SiteImgHooks/useFetchSiteImg"
 import { TrashIcon } from "@heroicons/react/20/solid"
 import { PopUp } from "../../Components/PopUp"
 import { PostSiteImg } from "./Components/PostSiteImg"
-import type { SiteImagesType } from "../../Types"
+import type { SiteImagesType } from "../../Types/SiteImgTypes"
 import { DeleteSiteImg } from "./Components/DeleteSiteImg"
 
 export function AdminSiteImages(){

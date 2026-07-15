@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { SiteImagesType } from "../../Types";
+import type { SiteImagesType } from "../../Types/SiteImgTypes";
 
 async function fetchSiteImages(): Promise<SiteImagesType[]> {
     const response = await fetch("/api/siteimages")

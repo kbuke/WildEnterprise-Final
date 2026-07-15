@@ -1,5 +1,5 @@
 import { useState } from "react"
-import type { EventTypes } from "../../Types"
+import type { EventTypes } from "../../Types/EventTypes"
 import { PopUp } from "../../Components/PopUp"
 import { PostEvent } from "./Components/PostEvent"
 import { useFetchEvents } from "../../Hooks/EventHooks/useFetchEvents"

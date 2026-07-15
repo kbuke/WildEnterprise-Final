@@ -1,7 +1,7 @@
 import { DropDownSiteSelect } from "../../../Components/dropDownSiteSelect"
 import { TextInputs } from "../../../Components/textInputs"
 import { useForm } from "react-hook-form"
-import type { PostSiteImgType } from "../../../Types"
+import type { PostSiteImgType } from "../../../Types/SiteImgTypes"
 import { usePostSiteImg } from "../../../Hooks/SiteImgHooks/usePostSiteImg"
 
 

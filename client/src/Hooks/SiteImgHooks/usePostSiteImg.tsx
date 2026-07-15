@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import type { PostSiteImgType } from "../../Types"
+import type { PostSiteImgType } from "../../Types/SiteImgTypes"
 import { queryClient } from "../../ReactQuery/queryClient"
 
 type PostSiteImgError = {

@@ -1,5 +1,5 @@
 import { CalendarIcon, EyeIcon } from "@heroicons/react/24/outline";
-import type { BlogType } from "../../../Types";
+import type { BlogType } from "../../../Types/BlogTypes";
 import { formatDate } from "../../../Utils/formatDate";
 import { Link } from "react-router-dom";
 

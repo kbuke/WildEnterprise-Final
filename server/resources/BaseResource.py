@@ -32,6 +32,8 @@ class BaseResource(Resource):
     def post_instance(self):
         data = request.get_json()
 
+        breakpoint()
+
         if not data:
             return{"error": "Missing JSON Data"}, 404
         
