@@ -27,8 +27,6 @@ export function PostEvent({
 
     const {mutate, isPending, isError, error} = usePostEvent()
 
-    console.log(error)
-
     const onSubmit = (formData: PostEventType) => {
         mutate(formData, {
             onSuccess: () => {

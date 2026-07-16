@@ -23,3 +23,11 @@ export type FormError = {
 export type FormMessage = {
     message: string
 }
+
+export type FormPostMessage = {
+    message: string
+}
+
+export type FormPostError = {
+    error: string
+}

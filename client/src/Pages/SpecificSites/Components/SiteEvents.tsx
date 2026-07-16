@@ -9,7 +9,6 @@ type SiteEventsType = {
 export function SiteEvents({
     events
 }: SiteEventsType){
-    console.log(events)
     return(
         <div
             className="p-4 bg-black/80 text-white"
@@ -35,7 +34,7 @@ export function SiteEvents({
                 return(
                     <div
                         key={index}
-                        className="grid grid-cols-[2fr_3fr] mb-4 border-b py-4 gap-6 items-center"
+                        className="lg:grid grid-cols-[2fr_3fr] mb-4 border-b py-4 gap-6 items-center"
                     >
                         <img 
                             src={img}

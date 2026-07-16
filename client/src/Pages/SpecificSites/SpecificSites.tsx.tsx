@@ -32,11 +32,9 @@ export function SpecificSites(){
     if(isError) return <p>Error: {error?.toString()}</p>
     if(!site) return <p>Site not found</p>
 
-    console.log(site)
-
     return(
         <section
-            className="flex flex-col"
+            className="flex flex-col pb-10 lg:pb-0"
         >
             <div
                 style={{
@@ -44,13 +42,13 @@ export function SpecificSites(){
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat"
                 }}
-                className="w-full h-240 text-white flex flex-col"
+                className="w-full h-80 lg:h-240 text-white flex flex-col"
             >
                 <div
-                    className="bg-black/60 absolute w-250 bottom-10 ml-4 rounded p-4"
+                    className="hidden lg:block bg-black/60 absolute w-250 bottom-10 ml-4 rounded p-4"
                 >
                     <h1
-                        className="uppercase tracking-[6px] text-9xl"
+                        className="uppercase text-4xl lg:tracking-[6px] lg:text-9xl"
                     >
                         {site?.name}
                     </h1>

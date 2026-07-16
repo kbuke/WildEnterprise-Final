@@ -29,11 +29,11 @@ export function SiteImgs({
             <h1
                 className="siteHeadings"
             >
-                Images of {name}
+                {name} Images
             </h1>
 
             <div
-                className="grid grid-cols-3 gap-6 mt-4"
+                className="grid lg:grid-cols-3 gap-6 mt-4"
             >
                 {images.map((image, index) => {
                     return(

@@ -4,11 +4,6 @@ import { TextArea } from "../../../Components/textarea"
 import type { PostNewSiteType } from "../../../Types/SiteTypes"
 import type { FormInputTypes } from "../../../Types/FormTypes"
 
-// type SiteInputsType = {
-//     register: UseFormRegister<PostNewSiteType>
-//     errors: FieldErrors<PostNewSiteType>
-// }
-
 export function SiteInputs({
     register,
     errors

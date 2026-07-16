@@ -27,10 +27,10 @@ export function SiteVideo({
     return(
         !noVideo &&
             <div
-                className="relative mt-14 px-10 py-6 bg-black/80"
+                className="relative mt-4 lg:mt-14 lg:px-10 lg:py-6 bg-black/80 mb-10 lg:mb-0"
             >
                 <video
-                    className="w-full rounded"
+                    className="w-full lg:rounded"
                     ref={videoRef}
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}

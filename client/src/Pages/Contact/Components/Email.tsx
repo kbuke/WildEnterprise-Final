@@ -4,7 +4,13 @@ import { EmailInputs } from "./EmailInputs";
 import { usePostEmail } from "../../../Hooks/Email/usePostEmail";
 import { useState } from "react";
 
-export function Email(){
+type EmailType = {
+    extraClassName: string
+}
+
+export function Email({
+    extraClassName
+}: EmailType){
     const [emailSent, setEmailSent] = useState(false)
 
     const {
@@ -26,6 +32,7 @@ export function Email(){
     return(
         <form
             onSubmit={handleSubmit(onSubmit)}
+            className={`${extraClassName}`}
         >
             <h2
                 className="uppercase text-2xl border-b inline-block font-bold tracking-[2px]"
@@ -33,20 +40,42 @@ export function Email(){
                 Send Us An Email
             </h2>
 
-            {emailSent &&
-                <p>Email Sent</p>
+            {isPending && 
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source 
+                        src="emailSent.mp4"
+                        type="video/mp4"
+                    />
+                </video>
             }
 
-            <EmailInputs 
-                register={register}
-                errors={errors}
-            />
+            {emailSent &&
+                <div
+                    className="bg-green-600/80 mt-6 h-15 w-[80%] text-center text-5xl flex items-center justify-center rounded-lg"
+                >
+                    Email Sent Successfully
+                </div>
+            }
 
-            <button
-                className="bg-green-600 text-white px-4 py-2 mt-4 rounded-lg h-12 w-50 uppercase text-xl font-bold tracking-[2px] cursor-pointer hover:-translate-y-2 duration-200"
-            >
-                Send Email
-            </button>
+            {!emailSent && !isPending &&
+                <div>
+                    <EmailInputs 
+                        register={register}
+                        errors={errors}
+                    />
+
+                    <button
+                        className="bg-green-600 text-white px-4 py-2 mt-4 rounded-lg h-12 w-50 uppercase text-xl font-bold tracking-[2px] cursor-pointer hover:-translate-y-2 duration-200"
+                    >
+                        Send Email
+                    </button>
+                </div>
+            }
         </form>
     )
 }

@@ -20,11 +20,11 @@ export function SiteBlogs({
             <h1
                 className="siteHeadings"
             >
-                Recent {name} Blogs
+                {name} News
             </h1>
 
             <div
-                className="flex gap-4"
+                className="flex flex-col lg:flex-row gap-4"
             >
                 {blogs?.map(blog => {
                     const {
@@ -41,7 +41,7 @@ export function SiteBlogs({
                     return(
                         <div
                             key={id}
-                            className="bg-white text-black cursor-pointer rounded h-120 w-100 overflow-y-hidden"
+                            className="bg-white text-black cursor-pointer rounded h-120 w-100 overflow-y-hidden mb-10"
                         >
                             <Link
                                 className="flex flex-col"
@@ -87,12 +87,12 @@ export function SiteBlogs({
                     )
                 })}
             </div>
-
+{/* 
             <button
                 className="bg-white text-black mt-6 h-14 p-4 uppercase font-bold tracking-[2px] rounded self-center justify-self-center cursor-pointer hover:-translate-y-2 duration-200"
             >
                 See More {name} Articles
-            </button>
+            </button> */}
         </div>
     )
 }

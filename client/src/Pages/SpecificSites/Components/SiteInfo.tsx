@@ -21,14 +21,14 @@ export function SiteInfo({ name, info, img1, img2, img3 }: SiteInfoType) {
         </PopUp>
       )}
 
-      <div className="grid grid-cols-2 ">
+      <div className="lg:grid lg:grid-cols-2 ">
         <div className="p-4">
           <h1 className="siteHeadings">About {name}</h1>
 
           <h2 className="text-xl tracking-[2px]">{info}</h2>
         </div>
 
-        <div className="p-4 relative mb-100">
+        <div className="hidden lg:block p-4 relative mb-100">
           <img
             // className="siteMainImg z-10 right-40 top-10"
             className={`siteMainImg z-20 right-40 top-10 ${highlightedImg === img1 && "z-30 scale-110"}`}

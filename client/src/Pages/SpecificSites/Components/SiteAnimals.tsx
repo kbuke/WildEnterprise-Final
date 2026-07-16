@@ -25,9 +25,9 @@ export function SiteAnimals({ name, animals }: SiteAnimalsType) {
           />
         </PopUp>
       )}
-      <h1 className="siteHeadings">Animals of {name}</h1>
+      <h1 className="siteHeadings">{name} Animals</h1>
 
-      <div className="mt-8 flex gap-4">
+      <div className="mt-8 flex flex-col lg:flex-row gap-4">
         {animals?.map((animal) => {
           return (
             <div

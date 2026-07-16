@@ -1,14 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
 import type { PostNewSiteType } from "../../Types/SiteTypes";
 import { queryClient } from "../../ReactQuery/queryClient";
+import type { FormPostError, FormPostMessage } from "../../Types/FormTypes";
 
-type PostSiteError = {
-    error: string
-}
+// type PostSiteError = {
+//     error: string
+// }
 
-type PostSiteResponseType = {
-    message: string
-}
+// type PostSiteResponseType = {
+//     message: string
+// }
 
 async function postNewSite({
     name,
@@ -19,7 +20,7 @@ async function postNewSite({
     primaryImg1,
     primaryImg2,
     primaryImg3
-}: PostNewSiteType): Promise<PostSiteResponseType> {
+}: PostNewSiteType): Promise<FormPostMessage> {
     const res = await fetch('/api/sites', {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -36,7 +37,7 @@ async function postNewSite({
         })
     })
     if(!res.ok){
-        const errorBody: PostSiteError = await res.json().catch(() => ({
+        const errorBody: FormPostError = await res.json().catch(() => ({
             error: "Something went wrong, please try again"
         }))
         throw new Error(errorBody.error)
