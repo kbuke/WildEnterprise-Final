@@ -18,6 +18,7 @@ from resources.SiteImage import SiteImgList, SpecificSiteImg
 from resources.Events import EventsList, SpecificEvent
 from resources.OtherSites import OtherSitesList, SpecificOtherSite
 from resources.Emails import EmailList, SpecificEmail
+from resources.Projects import ProjectList, SpecificProject
 
 api.add_resource(SitesList, "/sites")
 api.add_resource(SpecificSite, "/sites/<int:id>")
@@ -60,6 +61,9 @@ api.add_resource(OtherSitesList, "/othersites")
 api.add_resource(SpecificOtherSite, "/othersites/<int:id>")
 
 api.add_resource(EmailList, "/emails")
+
+api.add_resource(ProjectList, "/projects")
+api.add_resource(SpecificProject, "/projects/<int:id>")
 
 if __name__ == "__main__":
     app.run(port = 5555, debug = True)

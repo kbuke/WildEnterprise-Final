@@ -48,6 +48,12 @@ export function AdminDashboard(){
             bgImg: "WebAppBg.jpg",
             bgTitle: "Web Apps",
             bgUrl: "/adminwebsites"
+        },
+
+        {
+            bgImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGHIhTsj2tsrIpk6yoCpPCcdobJAUgWKSzunpES10SOkpV51Z-DBT-vHw&s=10",
+            bgTitle: "Projects",
+            bgUrl: "/adminprojects"
         }
     ]
 

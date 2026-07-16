@@ -18,7 +18,7 @@ export function SiteNav({
         <>
             {/* Small Screen Design */}
             <div
-                className="bg-black/90 h-14 p-4 text-white flex items-center sticky top-0 z-50 border-b"
+                className="bg-black/90 h-14 p-4 text-white flex items-center sticky top-0 z-50 border-b lg:hidden"
             >
                 <select
                     defaultValue={"About"}

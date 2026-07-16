@@ -31,3 +31,7 @@ export type FormPostMessage = {
 export type FormPostError = {
     error: string
 }
+
+export type CloseFormType = {
+    onClose: () => void
+}

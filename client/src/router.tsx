@@ -15,6 +15,7 @@ import { AdminSiteImages } from "./Pages/AdminSiteImages/AdminSiteImages.tsx";
 import { AdminEvents } from "./Pages/AdminEvents/AdminEvents.tsx";
 import { AdminWebApps } from "./Pages/AdminWebApps/AdminWebApps.tsx";
 import { ContactPg } from "./Pages/Contact/ContactPg.tsx";
+import { AdminProjects } from "./Pages/AdminProjects/AdminProjects.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +38,7 @@ export const router = createBrowserRouter([
                     {path: "/adminsiteimages", element: <AdminSiteImages />},
                     {path: "/adminevents", element: <AdminEvents />},
                     {path: "/adminwebsites", element: <AdminWebApps />},
+                    {path: "/adminprojects", element: <AdminProjects />}
                 ]
             }
         ]
