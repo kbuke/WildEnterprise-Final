@@ -35,3 +35,9 @@ export type FormPostError = {
 export type CloseFormType = {
     onClose: () => void
 }
+
+export type DeleteInstanceType = {
+    name: string, 
+    id: number,
+    onClose: () => void
+}

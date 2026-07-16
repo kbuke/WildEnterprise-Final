@@ -4,15 +4,19 @@ import { useFetchProjects } from "../../Hooks/Projects/useFetchProject"
 import type { FetchProjectType } from "../../Types/ProjectTypes"
 import { PopUp } from "../../Components/PopUp"
 import { PostProject } from "./Components/PostProject"
+import { DeleteProject } from "./Components/DeleteProject"
 
 export function AdminProjects(){
 
     const [projectAction, setProjectAction] = useState<"Post" | "Patch" | "Delete" | "Info">()
     const [selectedProject, setSelectedProject] = useState<FetchProjectType>()
 
-    const {projects} = useFetchProjects()
+    const {projects, isError, isLoading, error} = useFetchProjects()
 
     console.log(projects)
+
+    {isError && <p>Error</p>}
+    {isLoading && <p>Loading</p>}
     
     return(
         <section
@@ -39,6 +43,19 @@ export function AdminProjects(){
                 <PopUp>
                     <PostProject 
                         onClose={() => setProjectAction(undefined)}
+                    />
+                </PopUp>
+            }
+
+            {projectAction === "Delete" && selectedProject &&
+                <PopUp>
+                    <DeleteProject 
+                        name={selectedProject.name}
+                        id={selectedProject.id}
+                        onClose={() => {
+                            setProjectAction(undefined)
+                            setSelectedProject(undefined)
+                        }}
                     />
                 </PopUp>
             }
