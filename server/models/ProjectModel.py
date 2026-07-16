@@ -19,3 +19,5 @@ class ProjectModel(db.Model, SerializerMixin):
     # Set up relations with partners 
     # Set up relations with blog posts
     # Maybe add images of the projects
+    # Mention if the project is complete or underway 
+    # If it is finished mention the success of the project

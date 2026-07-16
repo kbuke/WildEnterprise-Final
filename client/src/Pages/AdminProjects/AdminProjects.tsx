@@ -5,6 +5,7 @@ import type { FetchProjectType } from "../../Types/ProjectTypes"
 import { PopUp } from "../../Components/PopUp"
 import { PostProject } from "./Components/PostProject"
 import { DeleteProject } from "./Components/DeleteProject"
+import { PatchProject } from "./Components/PatchProject"
 
 export function AdminProjects(){
 
@@ -55,6 +56,18 @@ export function AdminProjects(){
                         onClose={() => {
                             setProjectAction(undefined)
                             setSelectedProject(undefined)
+                        }}
+                    />
+                </PopUp>
+            }
+
+            {projectAction === "Patch" && selectedProject &&
+                <PopUp>
+                    <PatchProject 
+                        selectedInstance={selectedProject}
+                        onCancel={() => {
+                            setSelectedProject(undefined)
+                            setProjectAction(undefined)
                         }}
                     />
                 </PopUp>

@@ -41,3 +41,8 @@ export type DeleteInstanceType = {
     id: number,
     onClose: () => void
 }
+
+export type PatchInstanceType<T> = {
+    selectedInstance: T,
+    onCancel: () => void
+}
