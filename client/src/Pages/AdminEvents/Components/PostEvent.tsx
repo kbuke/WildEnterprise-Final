@@ -3,6 +3,7 @@ import type { PostEventType } from "../../../Types/EventTypes"
 import { EventInputs } from "./EventInputs"
 import { usePostEvent } from "../../../Hooks/EventHooks/usePostEvent"
 import { useOneDayEvent } from "../../../Hooks/EventHooks/useOneDayEvent"
+import { FormSubmitAndCancel } from "../../../Components/FormSubmitAndCancel"
 
 type CancelEventPost = {
     onClose: () => void
@@ -55,24 +56,11 @@ export function PostEvent({
                 oneDayEvent={oneDayEvent}
             />
 
-            <div
-                className="mt-4 flex flex-row gap-10"
-            >
-                <button
-                    className="crudButtons bg-green-600"
-                    type="submit"
-                >
-                    Add Event
-                </button>
-
-                <button
-                    className="crudButtons bg-red-600"
-                    type="button"
-                    onClick={onClose}
-                >
-                    Cancel
-                </button>
-            </div>
+            <FormSubmitAndCancel 
+                onClose={onClose}
+                name="Event"
+                action="Add"
+            />
         </form>
     )
 }

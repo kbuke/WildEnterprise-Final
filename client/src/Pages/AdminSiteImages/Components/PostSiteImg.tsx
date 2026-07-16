@@ -3,6 +3,7 @@ import { TextInputs } from "../../../Components/textInputs"
 import { useForm } from "react-hook-form"
 import type { PostSiteImgType } from "../../../Types/SiteImgTypes"
 import { usePostSiteImg } from "../../../Hooks/SiteImgHooks/usePostSiteImg"
+import { FormSubmitAndCancel } from "../../../Components/FormSubmitAndCancel"
 
 
 type CancelImgPost = {
@@ -60,24 +61,11 @@ export function PostSiteImg({
                 extraClasses="w-120 mt-10 border-b"
             />
 
-            <div
-                className="mt-10 flex flex-row gap-6"
-            >
-                <button
-                    className="crudButtons bg-green-600/80 "
-                    type="submit"
-                >
-                    Add Img
-                </button>
-
-                <button
-                    onClick={onClose}
-                    className="crudButtons bg-red-600/80"
-                    type="button"
-                >
-                    Cancel
-                </button>
-            </div>
+            <FormSubmitAndCancel 
+                name="Site Image"
+                onClose={onClose}
+                action="Add"
+            />
         </form>
     )
 }

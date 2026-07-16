@@ -3,6 +3,7 @@ import type { CloseCrudType } from "../../../Types"
 import type { PostNewSiteType } from "../../../Types/SiteTypes"
 import { usePostSite } from "../../../Hooks/SiteHooks/usePostSite"
 import { SiteInputs } from "./SiteInputs"
+import { FormSubmitAndCancel } from "../../../Components/FormSubmitAndCancel"
 
 export function PostNewSite({
     onClose
@@ -48,26 +49,11 @@ export function PostNewSite({
                 errors={errors}
             />
 
-            <div
-                className="flex gap-10 mt-4"
-            >
-                <button
-                    className="bg-green-600/80 crudButtons"
-                    type="submit"
-                    disabled={isPending}
-                >
-                    {isPending ? "Submitting..." : "Submit"}
-                </button>
-
-                <button
-                    className="bg-red-600/80 crudButtons"
-                    onClick={onClose}
-                    type="button"
-                    disabled={isPending}
-                >
-                    Cancel
-                </button>
-            </div>
+            <FormSubmitAndCancel 
+                name="Site"
+                onClose={onClose}
+                action="Add"
+            />
         </form>
     )
 }

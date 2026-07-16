@@ -1,14 +1,14 @@
 import { useState } from "react"
 import { useFetchSiteImg } from "../../Hooks/SiteImgHooks/useFetchSiteImg"
-import { TrashIcon } from "@heroicons/react/20/solid"
 import { PopUp } from "../../Components/PopUp"
 import { PostSiteImg } from "./Components/PostSiteImg"
 import type { SiteImagesType } from "../../Types/SiteImgTypes"
 import { DeleteSiteImg } from "./Components/DeleteSiteImg"
+import { AdminCards } from "../../Components/AdminCards"
 
 export function AdminSiteImages(){
 
-    const [siteImgAction, setSiteImgAction] = useState<"Post" | "Delete">()
+    const [siteImgAction, setSiteImgAction] = useState<"Post" | "Delete" | "Patch" | "Info">()
     const [selectedImg, setSelectedImg] = useState<SiteImagesType>()
 
     const {
@@ -60,26 +60,24 @@ export function AdminSiteImages(){
                 className="grid grid-cols-3 gap-6 mx-4 mt-6"
             >
                 {siteImages.map((image, index) => {
+                    const {url} = image
                     return(
-                        <div
+                        <AdminCards 
                             key={index}
-                            className="rounded hover:scale-106 duration-200"
-                        >
-                            <img 
-                                src={image.url}
-                                className="rounded-t"
-                            />
-
-                            <div
-                                className="bg-black/80 py-4 text-white flex flex-col items-center rounded-b"
-                                onClick={() => setSiteImgAction("Delete")}
-                            >
-                                <TrashIcon 
-                                    className="h-10 w-10 border rounded-full cursor-pointer"
-                                    onClick={() => setSelectedImg(image)}
-                                />
-                            </div>
-                        </div>
+                            img={url}
+                            onPatch={() => {
+                                setSelectedImg(image)
+                                setSiteImgAction("Patch")
+                            }}
+                            onDelete={() => {
+                                setSelectedImg(image)
+                                setSiteImgAction("Delete")
+                            }}
+                            onSelect={() => {
+                                setSelectedImg(image)
+                                setSiteImgAction("Info")
+                            }}
+                        />
                     )
                 })}
             </div>

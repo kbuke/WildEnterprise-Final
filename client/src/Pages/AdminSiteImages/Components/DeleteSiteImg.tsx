@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useDeleteSiteImg } from "../../../Hooks/SiteImgHooks/useDeleteSiteImg"
+import { FormSubmitAndCancel } from "../../../Components/FormSubmitAndCancel"
 
 type DeleteSiteImgType = {
     id: number,
@@ -30,7 +31,7 @@ export function DeleteSiteImg({
     return(
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="bg-white h-200 w-250 self-center rounded"
+            className="bg-white h-200 w-250 self-center rounded flex flex-col items-center"
         >
             <h1
                 className="text-center uppercase mt-6 text-2xl tracking-[2px] font-bold flex flex-col"
@@ -43,22 +44,11 @@ export function DeleteSiteImg({
                 className="h-140 mt-6 justify-self-center rounded"
             />
 
-            <div
-                className="flex flex-row gap-6 justify-self-center mt-6"
-            >
-                <button
-                    className="crudButtons bg-green-600/80"
-                >
-                    Yes
-                </button>
-
-                <button
-                    onClick={onClose}
-                    className="crudButtons bg-red-600/80"
-                >
-                    No
-                </button>
-            </div>
+            <FormSubmitAndCancel 
+                onClose={onClose}
+                name="Image"
+                action="Delete"
+            />
         </form>
     )
 }

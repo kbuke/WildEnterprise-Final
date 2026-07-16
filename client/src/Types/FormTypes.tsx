@@ -1,0 +1,25 @@
+import type { FieldValues, UseFormRegister, FieldErrors } from "react-hook-form"
+
+export type PostInstanceType = {
+    onClose: () => void,
+    action: "Delete" | "Add" | "Edit"
+    name?: string
+}
+
+export type EditAndDeleteType = {
+    patchAction?: () => void,
+    deleteAction?: () => void
+}
+
+export type FormInputTypes<T extends FieldValues> = {
+    register: UseFormRegister<T>
+    errors: FieldErrors<T>
+}
+
+export type FormError = {
+    error: string
+}
+
+export type FormMessage = {
+    message: string
+}

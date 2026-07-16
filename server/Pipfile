@@ -16,6 +16,7 @@ flask-login = "*"
 google-auth = "*"
 requests = "*"
 flask-bcrypt = "*"
+flask-mail = "*"
 
 [dev-packages]
 

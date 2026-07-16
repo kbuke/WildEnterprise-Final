@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import type { WebAppType } from "../../../Types/WebAppTypes"
 import { usePostWebApp } from "../../../Hooks/WebApps/usePostWebApp"
 import { WebAppInputs } from "./WebAppInputs"
+import { FormSubmitAndCancel } from "../../../Components/FormSubmitAndCancel"
 
 type PostWebsiteType = {
     onClose: () => void
@@ -43,24 +44,11 @@ export function PostWebsite({
                 errors={errors}
             />
 
-            <div
-                className="flex gap-4"
-            >
-                <button
-                    type="submit"
-                    className="w-50 bg-green-600 text-white h-14 rounded text-xl uppercase font-bold"
-                >
-                    Add Website
-                </button>
-
-                <button
-                    onClick={onClose}
-                    type="button"
-                    className="w-50 bg-red-600 text-white h-14 rounded text-xl uppercase font-bold"
-                >
-                    Cancel
-                </button>
-            </div>
+            <FormSubmitAndCancel 
+                name="Website"
+                onClose={onClose}
+                action="Add"
+            />
         </form>
     )
 }

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import type { DeleteSiteType } from "../../../Types/SiteTypes";
 import { useDeleteSite } from "../../../Hooks/SiteHooks/useDeleteSite";
+import { FormSubmitAndCancel } from "../../../Components/FormSubmitAndCancel";
 
 
 export function DeleteSite({
@@ -30,24 +31,11 @@ export function DeleteSite({
                 Delete {name}?
             </h1>
 
-            <div
-                className="flex gap-4 mt-4"
-            >
-                <button
-                    className="bg-green-600 crudButtons"
-                    type="submit"
-                >
-                    Delete
-                </button>
-
-                <button
-                    onClick={onClose}
-                    className="bg-red-600 crudButtons"
-                    type="button"
-                >
-                    Cancel
-                </button>
-            </div>
+            <FormSubmitAndCancel 
+                name={name}
+                action="Delete"
+                onClose={onClose}
+            />
         </form>
     )
 }

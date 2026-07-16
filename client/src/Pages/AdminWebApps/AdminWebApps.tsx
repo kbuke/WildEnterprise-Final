@@ -2,13 +2,15 @@ import { useState } from "react"
 import { useFetchWebApps } from "../../Hooks/WebApps/useFetchWebApps"
 import { PopUp } from "../../Components/PopUp"
 import { PostWebsite } from "./Components/PostWebsite"
+import { AdminCards } from "../../Components/AdminCards"
+import type { WebAppType } from "../../Types/WebAppTypes"
 
 export function AdminWebApps(){
-    const [websiteAction, setWebsiteAction] = useState<"Post" | "Patch" | "Delete">()
+    const [websiteAction, setWebsiteAction] = useState<"Post" | "Patch" | "Delete" | "Info">()
+    const [selectedWebsite, setSelectedWebsite] = useState<WebAppType>()
 
     const websiteData = useFetchWebApps()
     const allWebSites = websiteData.websites
-    console.log(allWebSites)
 
     return(
         <div
@@ -44,25 +46,25 @@ export function AdminWebApps(){
             }
 
             <div>
-                {allWebSites.map((website, index) => {
-                    const {name, url, id, info, img} = website
+                {allWebSites.map((website) => {
+                    const {name, img} = website
                     return(
-                        <div
-                            key={index}
-                        >
-                            <img 
-                                src={img}
-                                alt={`${name}-img`}
-                            />
-
-                            <h1>
-                                {name}
-                            </h1>
-
-                            <p><span className="font-bold">URL: </span>{url}</p>
-
-                            <p>{info}</p>
-                        </div>
+                        <AdminCards 
+                            name={name}
+                            img={img}
+                            onPatch={() => {
+                                setWebsiteAction("Patch")
+                                setSelectedWebsite(website)
+                            }}
+                            onDelete={() => {
+                                setWebsiteAction("Delete")
+                                setSelectedWebsite(website)
+                            }}
+                            onSelect={() => {
+                                setWebsiteAction("Info")
+                                setSelectedWebsite(website)
+                            }}
+                        />
                     )
                 })}
             </div>

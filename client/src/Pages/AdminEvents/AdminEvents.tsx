@@ -3,14 +3,13 @@ import type { EventTypes } from "../../Types/EventTypes"
 import { PopUp } from "../../Components/PopUp"
 import { PostEvent } from "./Components/PostEvent"
 import { useFetchEvents } from "../../Hooks/EventHooks/useFetchEvents"
-import { formatDate } from "../../Utils/formatDate"
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline"
 import { PatchEvent } from "./Components/PatchEvent"
 import { DeleteEvent } from "./Components/DeleteEvent"
+import { AdminCards } from "../../Components/AdminCards"
 
 export function AdminEvents(){
 
-    const [eventAction, setEventAction] = useState<"Post" | "Patch" | "Delete">()
+    const [eventAction, setEventAction] = useState<"Post" | "Patch" | "Delete" | "Info">()
     const [selectedEvent, setSelectedEvent] = useState<EventTypes>()
 
     const eventsData = useFetchEvents()
@@ -75,63 +74,25 @@ export function AdminEvents(){
                 }
 
                 {allEvents.map((event, index) => {
-                    const {start_date, start_time, end_time, end_date} = event
+                    const {name, img} = event
                     return(
-                        <div
+                        <AdminCards 
                             key={index}
-                            className="rounded bg-black/80 flex flex-col text-center items-center text-white text-2xl tracking-[2px]"
-                        >
-                            <img 
-                                src={event.img}
-                                className="rounded h-80 w-full"
-                            />
-
-                            <div
-                                className="py-6"
-                            >
-                                <h1>{event.name}</h1>
-
-                                {!end_date
-                                    ? <p>
-                                        {formatDate({date: start_date})}: {start_time} - {end_time}
-                                    </p>
-                                    : <div>
-                                        <p>
-                                            {formatDate({date: start_date})}: {start_time}
-                                        </p>
-
-                                        <p>
-                                            {formatDate({date: end_date})}: {end_time}
-                                        </p>
-                                    </div>
-                                }
-
-                                <button
-                                    className="bg-green-600 text-white cursor-pointer mt-4 rounded hover:-translate-y-2 duration-200 px-4 py-2 uppercase"
-                                >
-                                    More Info
-                                </button>
-
-                                 <div
-                                    className="flex flex-row gap-4 mt-6 text-center justify-between"
-                                >
-                                    <PencilIcon 
-                                        className="h-10 w-10 text-black bg-white rounded-full cursor-pointer"
-                                        onClick={() => {
-                                            setEventAction("Patch")
-                                            setSelectedEvent(event)
-                                        }}
-                                    />
-                                    <TrashIcon 
-                                        className="h-10 w-10 text-black bg-white rounded-full cursor-pointer"
-                                        onClick={() => {
-                                            setEventAction("Delete")
-                                            setSelectedEvent(event)
-                                        }}
-                                    />
-                            </div>
-                            </div>
-                        </div>
+                            name={name}
+                            img={img}
+                            onPatch={() => {
+                                setEventAction("Patch")
+                                setSelectedEvent(event)
+                            }}
+                            onDelete={() => {
+                                setEventAction("Delete")
+                                setSelectedEvent(event)
+                            }}
+                            onSelect={() => {
+                                setEventAction("Info")
+                                setSelectedEvent(event)
+                            }}
+                        />
                     )
                 })}
             </div>

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { SiteInputs } from "./SiteInputs"
 import { usePatchSite } from "../../../Hooks/SiteHooks/usePatchSite"
 import type { PostNewSiteType, SiteType } from "../../../Types/SiteTypes"
+import { FormSubmitAndCancel } from "../../../Components/FormSubmitAndCancel"
 
 type PatchSiteProps = {
     site: SiteType
@@ -56,24 +57,11 @@ export function PatchSite({ site, onClose }: PatchSiteProps){
                 errors={errors}
             />
 
-            <div className="flex gap-10 mt-4">
-                <button
-                    className="bg-green-600/80 crudButtons"
-                    type="submit"
-                    disabled={isPending}
-                >
-                    {isPending ? "Saving..." : "Save"}
-                </button>
-
-                <button
-                    className="bg-red-600/80 crudButtons"
-                    onClick={onClose}
-                    type="button"
-                    disabled={isPending}
-                >
-                    Cancel
-                </button>
-            </div>
+            <FormSubmitAndCancel 
+                name={site.name}
+                onClose={onClose}
+                action="Edit"
+            />
         </form>
     )
 }

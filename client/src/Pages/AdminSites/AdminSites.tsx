@@ -1,4 +1,3 @@
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline"
 import { useFetchSites } from "../../Hooks/SiteHooks/useFetchSites"
 import { useState } from "react"
 import { PopUp } from "../../Components/PopUp"
@@ -6,10 +5,11 @@ import { PostNewSite } from "./Components/PostNewSite"
 import type { SiteType } from "../../Types/SiteTypes"
 import { DeleteSite } from "./Components/DeleteSite"
 import { PatchSite } from "./Components/PatchSite"
+import { AdminCards } from "../../Components/AdminCards"
 
 export function AdminSites(){
 
-    const [siteAction, setSiteAction] = useState<"Post" | "Patch" | "Delete">()
+    const [siteAction, setSiteAction] = useState<"Post" | "Patch" | "Delete" | "Info">()
     const [selectedSite, setSelectedSite] = useState<SiteType>()
 
     const fetchSites = useFetchSites()
@@ -73,62 +73,25 @@ export function AdminSites(){
                 className="grid grid-cols-3 px-10"
             >
                 {allSites.map((site, index) => {
+                    const {name, head_img} = site
                     return(
-                        <div
+                        <AdminCards 
                             key={index}
-                            className="rounded h-120 w-100 bg-gray-500"
-                        >
-                            <img 
-                                src={site.head_img}
-                                className="rounded-t h-60 w-full"
-                            />
-
-                            <div
-                                className="px-4"
-                            >
-                                <h2
-                                    className="mt-4 uppercase text-white tracking-[4px] font-bold text-3xl border-b"
-                                >
-                                    {site.name}
-                                </h2>
-
-                                <div
-                                    className="bg-white h-12 flex items-center justify-between px-20 rounded-full mt-2 cursor-pointer hover:bg-gray-600 hover:text-white duration-200"
-                                    onClick={() => {
-                                        setSelectedSite(site)
-                                        setSiteAction("Patch")
-                                    }}
-                                >
-                                    <PencilIcon 
-                                        className="h-10 w-10"
-                                    />
-
-                                    <p
-                                        className="text-2xl uppercase"
-                                    >
-                                        Edit
-                                    </p>
-                                </div>
-
-                                <div
-                                    className="bg-white h-12 flex items-center justify-between px-20 rounded-full mt-4 cursor-pointer hover:bg-gray-600 hover:text-white duration-200"
-                                    onClick={() => {
-                                        setSelectedSite(site)
-                                        setSiteAction("Delete")
-                                    }}
-                                >
-                                    <TrashIcon 
-                                        className="h-10 w-10"
-                                    />
-
-                                    <p
-                                        className="text-2xl uppercase"
-                                    >
-                                        Delete
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                            name={name}
+                            img={head_img}
+                            onDelete={() => {
+                                setSelectedSite(site)
+                                setSiteAction("Delete")
+                            }}
+                            onPatch={() => {
+                                setSelectedSite(site)
+                                setSiteAction("Patch")
+                            }}
+                            onSelect={() => {
+                                setSelectedSite(site)
+                                setSiteAction("Info")
+                            }}
+                        />
                     )
                 })}
             </div>

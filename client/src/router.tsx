@@ -14,6 +14,7 @@ import { AdminInhabitants } from "./Pages/AdminInhabitants/AdminInhabitants.tsx"
 import { AdminSiteImages } from "./Pages/AdminSiteImages/AdminSiteImages.tsx";
 import { AdminEvents } from "./Pages/AdminEvents/AdminEvents.tsx";
 import { AdminWebApps } from "./Pages/AdminWebApps/AdminWebApps.tsx";
+import { ContactPg } from "./Pages/Contact/ContactPg.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([
             {path: "/signin", element: <Authentication />},
             {path: "/approved", element: <AuthenticationApproved />},
             {path: "/adminlogin", element: <AdminLogin />},
+            {path: "/contact", element: <ContactPg />},
             {
                 element: <ProtectedAdminRoute />,
                 children: [
@@ -34,7 +36,7 @@ export const router = createBrowserRouter([
                     {path: "/admininhabitants", element: <AdminInhabitants />},
                     {path: "/adminsiteimages", element: <AdminSiteImages />},
                     {path: "/adminevents", element: <AdminEvents />},
-                    {path: "/adminwebsites", element: <AdminWebApps />}
+                    {path: "/adminwebsites", element: <AdminWebApps />},
                 ]
             }
         ]

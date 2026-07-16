@@ -4,6 +4,7 @@ import { EventInputs } from "./EventInputs";
 import { useOneDayEvent } from "../../../Hooks/EventHooks/useOneDayEvent";
 import { toDateInput } from "../../../Components/toDateInput";
 import { usePatchEvent } from "../../../Hooks/EventHooks/usePatchEvent";
+import { FormSubmitAndCancel } from "../../../Components/FormSubmitAndCancel";
 
 
 
@@ -71,24 +72,11 @@ export function PatchEvent({
                 setOneDayEvent={handleToggleOneDayEvent}
             />
 
-            <div
-                className="mt-4 flex flex-row gap-10"
-            >
-                <button
-                    className="crudButtons bg-green-600"
-                    type="submit"
-                >
-                    Edit Event
-                </button>
-
-                <button
-                    className="crudButtons bg-red-600"
-                    type="button"
-                    onClick={onCancel}
-                >
-                    Cancel
-                </button>
-            </div>
+            <FormSubmitAndCancel 
+                onClose={onCancel}
+                name={event.name}
+                action="Edit"
+            />
         </form>
     )
 }

@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useDeleteEvent } from "../../../Hooks/EventHooks/useDeleteEvent"
+import { FormSubmitAndCancel } from "../../../Components/FormSubmitAndCancel"
 
 type DeleteEventType = {
     id: number,
@@ -35,24 +36,11 @@ export function DeleteEvent({
                 Delete {name}?
             </h1>
 
-            <div
-                className="flex gap-4 mt-4"
-            >
-                <button
-                    className="bg-green-600 crudButtons"
-                    type="submit"
-                >
-                    Delete
-                </button>
-
-                <button
-                    onClick={onClose}
-                    className="bg-red-600 crudButtons"
-                    type="button"
-                >
-                    Cancel
-                </button>
-            </div>
+            <FormSubmitAndCancel 
+                onClose={onClose}
+                action="Delete"
+                name={name}
+            />
         </form>
     )
 }
