@@ -11,6 +11,9 @@ from helpers.many_to_many import many_to_many
 
 from config import db
 
+from helpers.foreign_key_id import foreign_key_id
+from helpers.one_to_many_relationship import one_to_many_relationship
+
 
 class BlogModel(db.Model, SerializerMixin):
     __tablename__ = "blogs"
@@ -27,6 +30,9 @@ class BlogModel(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, nullable=True)
     published_at = db.Column(db.DateTime, nullable=True)
     edited_at = db.Column(db.DateTime, nullable=True)
+
+    author_id = foreign_key_id("authors")
+    author = one_to_many_relationship("AuthorModel", "blogs")
 
     # allow pictures to be added to a certain blog (one-to-many)
 

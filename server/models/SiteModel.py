@@ -36,6 +36,7 @@ class SiteModel(db.Model, SerializerMixin):
     serialize_rules = (
         "-animals.sites",
         "-blogs.sites",
+        "-blogs.author",
         "-inhabitants.site",
         "-images.site",
         "-events.site",
